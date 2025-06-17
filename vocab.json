@@ -30,3 +30,35 @@
     "answer": "Unconfirmed"
   }
 ]
+[
+  {
+    "sentence": "The manager praised her for being so meticulous in reviewing every detail of the report before submission.",
+    "word": "meticulous",
+    "choices": ["Careful", "Lazy", "Quick", "Friendly"],
+    "answer": "Careful"
+  },
+  {
+    "sentence": "Although the product launch was delayed, the marketing team remained optimistic about its eventual success.",
+    "word": "optimistic",
+    "choices": ["Hopeful", "Uncertain", "Angry", "Careless"],
+    "answer": "Hopeful"
+  },
+  {
+    "sentence": "His explanation was so convoluted that most of the audience had trouble understanding what he meant.",
+    "word": "convoluted",
+    "choices": ["Complicated", "Funny", "Clear", "Short"],
+    "answer": "Complicated"
+  },
+  {
+    "sentence": "The new policy aims to foster collaboration between departments that previously worked in isolation.",
+    "word": "foster",
+    "choices": ["Encourage", "Prevent", "Delay", "Ignore"],
+    "answer": "Encourage"
+  },
+  {
+    "sentence": "After months of negotiation, they finally reached a tentative agreement that still needed approval from both sides.",
+    "word": "tentative",
+    "choices": ["Unconfirmed", "Final", "Illegal", "Confident"],
+    "answer": "Unconfirmed"
+  }
+]
