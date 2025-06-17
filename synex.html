@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Local Synonym Challenge</title>
+  <script src="https://unpkg.com/compromise"></script>
+  <style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+    .container { background: white; padding: 30px; max-width: 800px; margin: auto; box-shadow: 0 0 10px #ccc; }
+    .paragraph { margin-bottom: 20px; line-height: 1.6; }
+    .question-block { margin-bottom: 25px; }
+    .question { font-weight: bold; margin-bottom: 10px; }
+    .choices button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .choices button:hover { background: #e0f0ff; }
+    .feedback { margin-top: 10px; font-weight: bold; }
+    button.next-btn { padding: 10px 20px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="paragraph" class="paragraph">Loading...</div>
+    <div id="questions"></div>
+    <button class="next-btn" onclick="generate()">Next</button>
+  </div>
+
+  <script>
+    async function getRandomParagraph() {
+      const res = await fetch('paragraphs.txt');
+      const text = await res.text();
+      const paragraphs = text.split(/\n\s*\n/).map(p => p.trim()).filter(p => p.length > 50);
+      return chooseRandom(paragraphs);
+    }
+
+    function getSentences(text) {
+      return text.match(/[^.!?]*[.!?]/g) || [text];
+    }
+
+    function getValidWordsFromSentence(sentence) {
+      const doc = nlp(sentence);
+      const terms = doc.terms().json();
+      const valid = [];
+
+      for (const term of terms) {
+        const text = term.text;
+        const tags = term.tags;
+
+        if (text.length < 4 || text[0] === text[0].toUpperCase()) continue;
+
+        if (tags.includes('Noun')) valid.push({ word: text.toLowerCase(), pos: 'n' });
+        else if (tags.includes('Verb')) valid.push({ word: text.toLowerCase(), pos: 'v' });
+        else if (tags.includes('Adjective')) valid.push({ word: text.toLowerCase(), pos: 'adj' });
+      }
+
+      return valid;
+    }
+
+    async function getSynonyms(word, pos) {
+      const res = await fetch(`https://api.datamuse.com/words?rel_syn=${word}&topics=${pos}`);
+      const data = await res.json();
+      return data.map(w => w.word);
+    }
+
+    function chooseRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    async function generate(attempt = 1) {
+      document.getElementById("paragraph").innerText = "Loading...";
+      document.getElementById("questions").innerHTML = "";
+
+      try {
+        let paragraph = await getRandomParagraph();
+        let sentences = getSentences(paragraph);
+        const results = [];
+
+        for (let i = 0; i < sentences.length; i++) {
+          const words = getValidWordsFromSentence(sentences[i]);
+          if (words.length > 0) {
+            const choice = chooseRandom(words);
+            results.push({ index: i, word: choice.word, pos: choice.pos });
+          }
+          if (results.length === 2) break;
+        }
+
+        if (results.length === 0) throw new Error("No suitable words found.");
+
+        // Bold selected words
+        results.forEach(r => {
+          sentences[r.index] = sentences[r.index].replace(
+            new RegExp(`\\b(${r.word})\\b`, 'i'),
+            '<strong>$1</strong>'
+          );
+        });
+
+        document.getElementById("paragraph").innerHTML = sentences.join(" ");
+
+        let questionCount = 0;
+
+        for (const item of results) {
+          const synonyms = await getSynonyms(item.word, item.pos);
+          if (!synonyms.length) continue;
+
+          const correct = synonyms[0];
+          const distractors = synonyms.slice(1, 10).filter(w => w !== item.word).slice(0, 3);
+          const options = [...distractors, correct].sort(() => Math.random() - 0.5);
+
+          const block = document.createElement("div");
+          block.className = "question-block";
+          block.innerHTML = `<div class="question">Choose the synonym for "<strong>${item.word}</strong>":</div>`;
+
+          const choiceContainer = document.createElement("div");
+          choiceContainer.className = "choices";
+          const feedback = document.createElement("div");
+          feedback.className = "feedback";
+
+          options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.onclick = () => {
+              feedback.textContent = opt === correct
+                ? "✅ Correct!"
+                : `❌ Incorrect. The correct answer is "${correct}".`;
+            };
+            choiceContainer.appendChild(btn);
+          });
+
+          block.appendChild(choiceContainer);
+          block.appendChild(feedback);
+          document.getElementById("questions").appendChild(block);
+          questionCount++;
+        }
+
+        if (questionCount === 0) {
+          if (attempt < 5) {
+            console.warn("No synonyms found, retrying...");
+            generate(attempt + 1);
+          } else {
+            document.getElementById("paragraph").innerText = "Could not generate synonym questions. Try again.";
+          }
+        }
+
+      } catch (err) {
+        console.error(err);
+        if (attempt < 5) {
+          generate(attempt + 1);
+        } else {
+          document.getElementById("paragraph").innerText = "Failed to load content. Try again.";
+        }
+      }
+    }
+
+    generate();
+  </script>
+</body>
+</html>
