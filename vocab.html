@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocabulary Set Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .choice {
+      display: block;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .choice.correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+    }
+    .choice.incorrect {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+    }
+    .disabled {
+      pointer-events: none;
+    }
+    #next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Vocabulary Set</h2>
+  <p id="sentence"></p>
+  <p><strong>Which word is closest in meaning to <span id="target-word"></span>?</strong></p>
+  <div id="choices"></div>
+
+  <button id="next-btn">Next</button>
+
+  <script>
+    let vocabData = [];
+
+    async function loadData() {
+      const response = await fetch('vocab.json');
+      vocabData = await response.json();
+      loadVocabularySet();
+    }
+
+    function loadVocabularySet() {
+      const set = vocabData[Math.floor(Math.random() * vocabData.length)];
+
+      document.getElementById('sentence').textContent = set.sentence;
+      document.getElementById('target-word').textContent = set.word;
+
+      const choicesContainer = document.getElementById('choices');
+      choicesContainer.innerHTML = '';
+
+      set.choices.forEach(choice => {
+        const button = document.createElement('div');
+        button.textContent = choice;
+        button.classList.add('choice');
+        button.addEventListener('click', () => {
+          const allChoices = document.querySelectorAll('.choice');
+          allChoices.forEach(c => c.classList.add('disabled'));
+          if (choice === set.answer) {
+            button.classList.add('correct');
+          } else {
+            button.classList.add('incorrect');
+            const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
+            if (correctBtn) correctBtn.classList.add('correct');
+          }
+        });
+        choicesContainer.appendChild(button);
+      });
+    }
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      loadVocabularySet();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
