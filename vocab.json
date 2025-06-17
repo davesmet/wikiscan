@@ -29,8 +29,6 @@
     "choices": ["Unconfirmed", "Final", "Illegal", "Confident"],
     "answer": "Unconfirmed"
   }
-]
-[
   {
     "sentence": "The film received widespread acclaim for its powerful storytelling and emotional depth.",
     "word": "acclaim",
@@ -151,4 +149,124 @@
     "choices": ["Welcoming", "Demanding", "Independent", "Strict"],
     "answer": "Welcoming"
   }
+  {
+  "sentence": "His constant interruptions became a major hindrance to the progress of the meeting.",
+  "word": "hindrance",
+  "choices": ["Obstacle", "Plan", "Excuse", "Solution"],
+  "answer": "Obstacle"
+},
+{
+  "sentence": "The researcher postulated a new theory based on the data collected from the latest experiment.",
+  "word": "postulated",
+  "choices": ["Proposed", "Ignored", "Refuted", "Tested"],
+  "answer": "Proposed"
+},
+{
+  "sentence": "Her demeanor remained calm and composed even under intense pressure.",
+  "word": "demeanor",
+  "choices": ["Behavior", "Concern", "Appearance", "Schedule"],
+  "answer": "Behavior"
+},
+{
+  "sentence": "The documentary provided a bleak but accurate portrayal of life in the refugee camps.",
+  "word": "bleak",
+  "choices": ["Gloomy", "Fictional", "Safe", "Colorful"],
+  "answer": "Gloomy"
+},
+{
+  "sentence": "The artist’s work was known for its vibrant colors and unconventional style.",
+  "word": "vibrant",
+  "choices": ["Lively", "Faded", "Dark", "Simple"],
+  "answer": "Lively"
+},
+{
+  "sentence": "The engineer had to devise a new method to reduce energy loss in the system.",
+  "word": "devise",
+  "choices": ["Invent", "Destroy", "Delay", "Deny"],
+  "answer": "Invent"
+},
+{
+  "sentence": "He always took a pragmatic approach to problem-solving, focusing on what worked rather than theory.",
+  "word": "pragmatic",
+  "choices": ["Practical", "Critical", "Emotional", "Idealistic"],
+  "answer": "Practical"
+},
+{
+  "sentence": "The soldiers endured harsh conditions during the winter campaign.",
+  "word": "endured",
+  "choices": ["Suffered", "Ignored", "Predicted", "Caused"],
+  "answer": "Suffered"
+},
+{
+  "sentence": "Her performance in the debate was admirable, especially considering her limited preparation time.",
+  "word": "admirable",
+  "choices": ["Praiseworthy", "Average", "Insincere", "Predictable"],
+  "answer": "Praiseworthy"
+},
+{
+  "sentence": "The startup lacked the capital necessary to scale its operations globally.",
+  "word": "capital",
+  "choices": ["Money", "License", "Permission", "Office"],
+  "answer": "Money"
+},
+{
+  "sentence": "He was known for being resilient in the face of setbacks, always bouncing back stronger.",
+  "word": "resilient",
+  "choices": ["Tough", "Polite", "Silent", "Humble"],
+  "answer": "Tough"
+},
+{
+  "sentence": "Their decision to relocate was driven by the high cost of living in the city.",
+  "word": "relocate",
+  "choices": ["Move", "Protest", "Celebrate", "Repair"],
+  "answer": "Move"
+},
+{
+  "sentence": "The novel's protagonist was a complex character with a mysterious past.",
+  "word": "protagonist",
+  "choices": ["Main character", "Stranger", "Enemy", "Author"],
+  "answer": "Main character"
+},
+{
+  "sentence": "The instructions were ambiguous, leaving many participants unsure of what to do.",
+  "word": "ambiguous",
+  "choices": ["Unclear", "Helpful", "Lengthy", "Exact"],
+  "answer": "Unclear"
+},
+{
+  "sentence": "The committee was impressed by her articulate response to a difficult question.",
+  "word": "articulate",
+  "choices": ["Expressive", "Quick", "Repetitive", "Neutral"],
+  "answer": "Expressive"
+},
+{
+  "sentence": "The merchant thrived in the busy marketplace, selling handmade goods to tourists.",
+  "word": "merchant",
+  "choices": ["Seller", "Painter", "Waiter", "Manager"],
+  "answer": "Seller"
+},
+{
+  "sentence": "Their vacation was marred by a series of unexpected delays and cancellations.",
+  "word": "marred",
+  "choices": ["Ruined", "Shortened", "Improved", "Extended"],
+  "answer": "Ruined"
+},
+{
+  "sentence": "The teacher emphasized the importance of integrity in academic work.",
+  "word": "integrity",
+  "choices": ["Honesty", "Ambition", "Knowledge", "Effort"],
+  "answer": "Honesty"
+},
+{
+  "sentence": "They sought refuge in a nearby village after the storm destroyed their home.",
+  "word": "refuge",
+  "choices": ["Shelter", "Gift", "Signal", "Money"],
+  "answer": "Shelter"
+},
+{
+  "sentence": "The architect was lauded for her innovative use of space and natural light.",
+  "word": "lauded",
+  "choices": ["Praised", "Tested", "Mocked", "Replaced"],
+  "answer": "Praised"
+}
 ]
