@@ -32,33 +32,123 @@
 ]
 [
   {
-    "sentence": "The manager praised her for being so meticulous in reviewing every detail of the report before submission.",
-    "word": "meticulous",
-    "choices": ["Careful", "Lazy", "Quick", "Friendly"],
-    "answer": "Careful"
+    "sentence": "The film received widespread acclaim for its powerful storytelling and emotional depth.",
+    "word": "acclaim",
+    "choices": ["Praise", "Criticism", "Profit", "Attention"],
+    "answer": "Praise"
   },
   {
-    "sentence": "Although the product launch was delayed, the marketing team remained optimistic about its eventual success.",
-    "word": "optimistic",
-    "choices": ["Hopeful", "Uncertain", "Angry", "Careless"],
-    "answer": "Hopeful"
+    "sentence": "She remained impartial throughout the discussion, refusing to take sides in the argument.",
+    "word": "impartial",
+    "choices": ["Neutral", "Angry", "Supportive", "Confused"],
+    "answer": "Neutral"
   },
   {
-    "sentence": "His explanation was so convoluted that most of the audience had trouble understanding what he meant.",
-    "word": "convoluted",
-    "choices": ["Complicated", "Funny", "Clear", "Short"],
-    "answer": "Complicated"
+    "sentence": "The software update was meant to enhance performance, but it inadvertently caused several bugs.",
+    "word": "inadvertently",
+    "choices": ["Unintentionally", "Deliberately", "Carefully", "Immediately"],
+    "answer": "Unintentionally"
   },
   {
-    "sentence": "The new policy aims to foster collaboration between departments that previously worked in isolation.",
-    "word": "foster",
-    "choices": ["Encourage", "Prevent", "Delay", "Ignore"],
-    "answer": "Encourage"
+    "sentence": "The speaker's remarks were so profound that the audience sat in thoughtful silence.",
+    "word": "profound",
+    "choices": ["Deep", "Short", "Confusing", "Joyful"],
+    "answer": "Deep"
   },
   {
-    "sentence": "After months of negotiation, they finally reached a tentative agreement that still needed approval from both sides.",
-    "word": "tentative",
-    "choices": ["Unconfirmed", "Final", "Illegal", "Confident"],
-    "answer": "Unconfirmed"
+    "sentence": "The designer created a prototype to demonstrate how the final product would look and function.",
+    "word": "prototype",
+    "choices": ["Model", "Tool", "Material", "Instruction"],
+    "answer": "Model"
+  },
+  {
+    "sentence": "Even though he disagreed with the decision, he accepted it with grace and did not retaliate.",
+    "word": "retaliate",
+    "choices": ["Strike back", "Leave", "Complain", "Ignore"],
+    "answer": "Strike back"
+  },
+  {
+    "sentence": "The evidence was compelling enough to convince even the most skeptical members of the jury.",
+    "word": "compelling",
+    "choices": ["Convincing", "Confusing", "Incomplete", "Optional"],
+    "answer": "Convincing"
+  },
+  {
+    "sentence": "After a long day, she found solace in reading quietly by the fire.",
+    "word": "solace",
+    "choices": ["Comfort", "Excitement", "Company", "Warmth"],
+    "answer": "Comfort"
+  },
+  {
+    "sentence": "The company had to curtail spending due to a significant drop in revenue.",
+    "word": "curtail",
+    "choices": ["Reduce", "Increase", "Balance", "Transfer"],
+    "answer": "Reduce"
+  },
+  {
+    "sentence": "Despite his ambitious goals, his methods were often seen as unorthodox and unpredictable.",
+    "word": "unorthodox",
+    "choices": ["Unusual", "Reliable", "Outdated", "Simple"],
+    "answer": "Unusual"
+  },
+  {
+    "sentence": "The manager commended the team for their unwavering dedication to the project.",
+    "word": "unwavering",
+    "choices": ["Steady", "Slow", "Creative", "Cautious"],
+    "answer": "Steady"
+  },
+  {
+    "sentence": "Her remarks were so candid that they caught everyone off guard.",
+    "word": "candid",
+    "choices": ["Honest", "Polite", "Hesitant", "Sarcastic"],
+    "answer": "Honest"
+  },
+  {
+    "sentence": "The new policy will take effect in July, pending final approval from the board.",
+    "word": "pending",
+    "choices": ["Awaiting", "Canceling", "Preventing", "Refusing"],
+    "answer": "Awaiting"
+  },
+  {
+    "sentence": "The professor tried to distill the complex theory into simple terms for the students.",
+    "word": "distill",
+    "choices": ["Simplify", "Hide", "Expand", "Replace"],
+    "answer": "Simplify"
+  },
+  {
+    "sentence": "The news of the company's closure was a devastating blow to the local economy.",
+    "word": "devastating",
+    "choices": ["Destructive", "Expected", "Helpful", "Temporary"],
+    "answer": "Destructive"
+  },
+  {
+    "sentence": "He was reprimanded for arriving late to work multiple times without explanation.",
+    "word": "reprimanded",
+    "choices": ["Scolded", "Promoted", "Excused", "Ignored"],
+    "answer": "Scolded"
+  },
+  {
+    "sentence": "To maintain security, access to the confidential documents is strictly restricted.",
+    "word": "confidential",
+    "choices": ["Private", "Expired", "Editable", "Available"],
+    "answer": "Private"
+  },
+  {
+    "sentence": "Their collaboration on the project was fruitful, producing excellent results in a short time.",
+    "word": "fruitful",
+    "choices": ["Productive", "Unclear", "Difficult", "Confusing"],
+    "answer": "Productive"
+  },
+  {
+    "sentence": "Many locals were wary of the new development, fearing it would change the character of the neighborhood.",
+    "word": "wary",
+    "choices": ["Cautious", "Excited", "Certain", "Hopeful"],
+    "answer": "Cautious"
+  },
+  {
+    "sentence": "The teacher was praised for creating an inclusive environment where all students felt welcome.",
+    "word": "inclusive",
+    "choices": ["Welcoming", "Demanding", "Independent", "Strict"],
+    "answer": "Welcoming"
   }
 ]
