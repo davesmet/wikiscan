@@ -2,271 +2,3341 @@
   {
     "sentence": "The manager praised her for being so meticulous in reviewing every detail of the report before submission.",
     "word": "meticulous",
-    "choices": ["Careful", "Lazy", "Quick", "Friendly"],
-    "answer": "Careful"
+    "choices": [
+      "Careful",
+      "Lazy",
+      "Quick",
+      "Friendly"
+    ],
+    "answer": "Careful",
+    "id": 1
   },
   {
     "sentence": "Although the product launch was delayed, the marketing team remained optimistic about its eventual success.",
     "word": "optimistic",
-    "choices": ["Hopeful", "Uncertain", "Angry", "Careless"],
-    "answer": "Hopeful"
+    "choices": [
+      "Hopeful",
+      "Uncertain",
+      "Angry",
+      "Careless"
+    ],
+    "answer": "Hopeful",
+    "id": 2
   },
   {
     "sentence": "His explanation was so convoluted that most of the audience had trouble understanding what he meant.",
     "word": "convoluted",
-    "choices": ["Complicated", "Funny", "Clear", "Short"],
-    "answer": "Complicated"
+    "choices": [
+      "Complicated",
+      "Funny",
+      "Clear",
+      "Short"
+    ],
+    "answer": "Complicated",
+    "id": 3
   },
   {
     "sentence": "The new policy aims to foster collaboration between departments that previously worked in isolation.",
     "word": "foster",
-    "choices": ["Encourage", "Prevent", "Delay", "Ignore"],
-    "answer": "Encourage"
+    "choices": [
+      "Encourage",
+      "Prevent",
+      "Delay",
+      "Ignore"
+    ],
+    "answer": "Encourage",
+    "id": 4
   },
   {
     "sentence": "After months of negotiation, they finally reached a tentative agreement that still needed approval from both sides.",
     "word": "tentative",
-    "choices": ["Unconfirmed", "Final", "Illegal", "Confident"],
-    "answer": "Unconfirmed"
-  }
+    "choices": [
+      "Unconfirmed",
+      "Final",
+      "Illegal",
+      "Confident"
+    ],
+    "answer": "Unconfirmed",
+    "id": 5
+  },
   {
     "sentence": "The film received widespread acclaim for its powerful storytelling and emotional depth.",
     "word": "acclaim",
-    "choices": ["Praise", "Criticism", "Profit", "Attention"],
-    "answer": "Praise"
+    "choices": [
+      "Praise",
+      "Criticism",
+      "Profit",
+      "Attention"
+    ],
+    "answer": "Praise",
+    "id": 6
   },
   {
     "sentence": "She remained impartial throughout the discussion, refusing to take sides in the argument.",
     "word": "impartial",
-    "choices": ["Neutral", "Angry", "Supportive", "Confused"],
-    "answer": "Neutral"
+    "choices": [
+      "Neutral",
+      "Angry",
+      "Supportive",
+      "Confused"
+    ],
+    "answer": "Neutral",
+    "id": 7
   },
   {
     "sentence": "The software update was meant to enhance performance, but it inadvertently caused several bugs.",
     "word": "inadvertently",
-    "choices": ["Unintentionally", "Deliberately", "Carefully", "Immediately"],
-    "answer": "Unintentionally"
+    "choices": [
+      "Unintentionally",
+      "Deliberately",
+      "Carefully",
+      "Immediately"
+    ],
+    "answer": "Unintentionally",
+    "id": 8
   },
   {
     "sentence": "The speaker's remarks were so profound that the audience sat in thoughtful silence.",
     "word": "profound",
-    "choices": ["Deep", "Short", "Confusing", "Joyful"],
-    "answer": "Deep"
+    "choices": [
+      "Deep",
+      "Short",
+      "Confusing",
+      "Joyful"
+    ],
+    "answer": "Deep",
+    "id": 9
   },
   {
     "sentence": "The designer created a prototype to demonstrate how the final product would look and function.",
     "word": "prototype",
-    "choices": ["Model", "Tool", "Material", "Instruction"],
-    "answer": "Model"
+    "choices": [
+      "Model",
+      "Tool",
+      "Material",
+      "Instruction"
+    ],
+    "answer": "Model",
+    "id": 10
   },
   {
     "sentence": "Even though he disagreed with the decision, he accepted it with grace and did not retaliate.",
     "word": "retaliate",
-    "choices": ["Strike back", "Leave", "Complain", "Ignore"],
-    "answer": "Strike back"
+    "choices": [
+      "Strike back",
+      "Leave",
+      "Complain",
+      "Ignore"
+    ],
+    "answer": "Strike back",
+    "id": 11
   },
   {
     "sentence": "The evidence was compelling enough to convince even the most skeptical members of the jury.",
     "word": "compelling",
-    "choices": ["Convincing", "Confusing", "Incomplete", "Optional"],
-    "answer": "Convincing"
+    "choices": [
+      "Convincing",
+      "Confusing",
+      "Incomplete",
+      "Optional"
+    ],
+    "answer": "Convincing",
+    "id": 12
   },
   {
     "sentence": "After a long day, she found solace in reading quietly by the fire.",
     "word": "solace",
-    "choices": ["Comfort", "Excitement", "Company", "Warmth"],
-    "answer": "Comfort"
+    "choices": [
+      "Comfort",
+      "Excitement",
+      "Company",
+      "Warmth"
+    ],
+    "answer": "Comfort",
+    "id": 13
   },
   {
     "sentence": "The company had to curtail spending due to a significant drop in revenue.",
     "word": "curtail",
-    "choices": ["Reduce", "Increase", "Balance", "Transfer"],
-    "answer": "Reduce"
+    "choices": [
+      "Reduce",
+      "Increase",
+      "Balance",
+      "Transfer"
+    ],
+    "answer": "Reduce",
+    "id": 14
   },
   {
     "sentence": "Despite his ambitious goals, his methods were often seen as unorthodox and unpredictable.",
     "word": "unorthodox",
-    "choices": ["Unusual", "Reliable", "Outdated", "Simple"],
-    "answer": "Unusual"
+    "choices": [
+      "Unusual",
+      "Reliable",
+      "Outdated",
+      "Simple"
+    ],
+    "answer": "Unusual",
+    "id": 15
   },
   {
     "sentence": "The manager commended the team for their unwavering dedication to the project.",
     "word": "unwavering",
-    "choices": ["Steady", "Slow", "Creative", "Cautious"],
-    "answer": "Steady"
+    "choices": [
+      "Steady",
+      "Slow",
+      "Creative",
+      "Cautious"
+    ],
+    "answer": "Steady",
+    "id": 16
   },
   {
     "sentence": "Her remarks were so candid that they caught everyone off guard.",
     "word": "candid",
-    "choices": ["Honest", "Polite", "Hesitant", "Sarcastic"],
-    "answer": "Honest"
+    "choices": [
+      "Honest",
+      "Polite",
+      "Hesitant",
+      "Sarcastic"
+    ],
+    "answer": "Honest",
+    "id": 17
   },
   {
     "sentence": "The new policy will take effect in July, pending final approval from the board.",
     "word": "pending",
-    "choices": ["Awaiting", "Canceling", "Preventing", "Refusing"],
-    "answer": "Awaiting"
+    "choices": [
+      "Awaiting",
+      "Canceling",
+      "Preventing",
+      "Refusing"
+    ],
+    "answer": "Awaiting",
+    "id": 18
   },
   {
     "sentence": "The professor tried to distill the complex theory into simple terms for the students.",
     "word": "distill",
-    "choices": ["Simplify", "Hide", "Expand", "Replace"],
-    "answer": "Simplify"
+    "choices": [
+      "Simplify",
+      "Hide",
+      "Expand",
+      "Replace"
+    ],
+    "answer": "Simplify",
+    "id": 19
   },
   {
     "sentence": "The news of the company's closure was a devastating blow to the local economy.",
     "word": "devastating",
-    "choices": ["Destructive", "Expected", "Helpful", "Temporary"],
-    "answer": "Destructive"
+    "choices": [
+      "Destructive",
+      "Expected",
+      "Helpful",
+      "Temporary"
+    ],
+    "answer": "Destructive",
+    "id": 20
   },
   {
     "sentence": "He was reprimanded for arriving late to work multiple times without explanation.",
     "word": "reprimanded",
-    "choices": ["Scolded", "Promoted", "Excused", "Ignored"],
-    "answer": "Scolded"
+    "choices": [
+      "Scolded",
+      "Promoted",
+      "Excused",
+      "Ignored"
+    ],
+    "answer": "Scolded",
+    "id": 21
   },
   {
     "sentence": "To maintain security, access to the confidential documents is strictly restricted.",
     "word": "confidential",
-    "choices": ["Private", "Expired", "Editable", "Available"],
-    "answer": "Private"
+    "choices": [
+      "Private",
+      "Expired",
+      "Editable",
+      "Available"
+    ],
+    "answer": "Private",
+    "id": 22
   },
   {
     "sentence": "Their collaboration on the project was fruitful, producing excellent results in a short time.",
     "word": "fruitful",
-    "choices": ["Productive", "Unclear", "Difficult", "Confusing"],
-    "answer": "Productive"
+    "choices": [
+      "Productive",
+      "Unclear",
+      "Difficult",
+      "Confusing"
+    ],
+    "answer": "Productive",
+    "id": 23
   },
   {
     "sentence": "Many locals were wary of the new development, fearing it would change the character of the neighborhood.",
     "word": "wary",
-    "choices": ["Cautious", "Excited", "Certain", "Hopeful"],
-    "answer": "Cautious"
+    "choices": [
+      "Cautious",
+      "Excited",
+      "Certain",
+      "Hopeful"
+    ],
+    "answer": "Cautious",
+    "id": 24
   },
   {
     "sentence": "The teacher was praised for creating an inclusive environment where all students felt welcome.",
     "word": "inclusive",
-    "choices": ["Welcoming", "Demanding", "Independent", "Strict"],
-    "answer": "Welcoming"
-  }
+    "choices": [
+      "Welcoming",
+      "Demanding",
+      "Independent",
+      "Strict"
+    ],
+    "answer": "Welcoming",
+    "id": 25
+  },
   {
-  "sentence": "His constant interruptions became a major hindrance to the progress of the meeting.",
-  "word": "hindrance",
-  "choices": ["Obstacle", "Plan", "Excuse", "Solution"],
-  "answer": "Obstacle"
+    "sentence": "His constant interruptions became a major hindrance to the progress of the meeting.",
+    "word": "hindrance",
+    "choices": [
+      "Obstacle",
+      "Plan",
+      "Excuse",
+      "Solution"
+    ],
+    "answer": "Obstacle",
+    "id": 26
+  },
+  {
+    "sentence": "The researcher postulated a new theory based on the data collected from the latest experiment.",
+    "word": "postulated",
+    "choices": [
+      "Proposed",
+      "Ignored",
+      "Refuted",
+      "Tested"
+    ],
+    "answer": "Proposed",
+    "id": 27
+  },
+  {
+    "sentence": "Her demeanor remained calm and composed even under intense pressure.",
+    "word": "demeanor",
+    "choices": [
+      "Behavior",
+      "Concern",
+      "Appearance",
+      "Schedule"
+    ],
+    "answer": "Behavior",
+    "id": 28
+  },
+  {
+    "sentence": "The documentary provided a bleak but accurate portrayal of life in the refugee camps.",
+    "word": "bleak",
+    "choices": [
+      "Gloomy",
+      "Fictional",
+      "Safe",
+      "Colorful"
+    ],
+    "answer": "Gloomy",
+    "id": 29
+  },
+  {
+    "sentence": "The artist\u2019s work was known for its vibrant colors and unconventional style.",
+    "word": "vibrant",
+    "choices": [
+      "Lively",
+      "Faded",
+      "Dark",
+      "Simple"
+    ],
+    "answer": "Lively",
+    "id": 30
+  },
+  {
+    "sentence": "The engineer had to devise a new method to reduce energy loss in the system.",
+    "word": "devise",
+    "choices": [
+      "Invent",
+      "Destroy",
+      "Delay",
+      "Deny"
+    ],
+    "answer": "Invent",
+    "id": 31
+  },
+  {
+    "sentence": "He always took a pragmatic approach to problem-solving, focusing on what worked rather than theory.",
+    "word": "pragmatic",
+    "choices": [
+      "Practical",
+      "Critical",
+      "Emotional",
+      "Idealistic"
+    ],
+    "answer": "Practical",
+    "id": 32
+  },
+  {
+    "sentence": "The soldiers endured harsh conditions during the winter campaign.",
+    "word": "endured",
+    "choices": [
+      "Suffered",
+      "Ignored",
+      "Predicted",
+      "Caused"
+    ],
+    "answer": "Suffered",
+    "id": 33
+  },
+  {
+    "sentence": "Her performance in the debate was admirable, especially considering her limited preparation time.",
+    "word": "admirable",
+    "choices": [
+      "Praiseworthy",
+      "Average",
+      "Insincere",
+      "Predictable"
+    ],
+    "answer": "Praiseworthy",
+    "id": 34
+  },
+  {
+    "sentence": "The startup lacked the capital necessary to scale its operations globally.",
+    "word": "capital",
+    "choices": [
+      "Money",
+      "License",
+      "Permission",
+      "Office"
+    ],
+    "answer": "Money",
+    "id": 35
+  },
+  {
+    "sentence": "He was known for being resilient in the face of setbacks, always bouncing back stronger.",
+    "word": "resilient",
+    "choices": [
+      "Tough",
+      "Polite",
+      "Silent",
+      "Humble"
+    ],
+    "answer": "Tough",
+    "id": 36
+  },
+  {
+    "sentence": "Their decision to relocate was driven by the high cost of living in the city.",
+    "word": "relocate",
+    "choices": [
+      "Move",
+      "Protest",
+      "Celebrate",
+      "Repair"
+    ],
+    "answer": "Move",
+    "id": 37
+  },
+  {
+    "sentence": "The novel's protagonist was a complex character with a mysterious past.",
+    "word": "protagonist",
+    "choices": [
+      "Main character",
+      "Stranger",
+      "Enemy",
+      "Author"
+    ],
+    "answer": "Main character",
+    "id": 38
+  },
+  {
+    "sentence": "The instructions were ambiguous, leaving many participants unsure of what to do.",
+    "word": "ambiguous",
+    "choices": [
+      "Unclear",
+      "Helpful",
+      "Lengthy",
+      "Exact"
+    ],
+    "answer": "Unclear",
+    "id": 39
+  },
+  {
+    "sentence": "The committee was impressed by her articulate response to a difficult question.",
+    "word": "articulate",
+    "choices": [
+      "Expressive",
+      "Quick",
+      "Repetitive",
+      "Neutral"
+    ],
+    "answer": "Expressive",
+    "id": 40
+  },
+  {
+    "sentence": "The merchant thrived in the busy marketplace, selling handmade goods to tourists.",
+    "word": "merchant",
+    "choices": [
+      "Seller",
+      "Painter",
+      "Waiter",
+      "Manager"
+    ],
+    "answer": "Seller",
+    "id": 41
+  },
+  {
+    "sentence": "Their vacation was marred by a series of unexpected delays and cancellations.",
+    "word": "marred",
+    "choices": [
+      "Ruined",
+      "Shortened",
+      "Improved",
+      "Extended"
+    ],
+    "answer": "Ruined",
+    "id": 42
+  },
+  {
+    "sentence": "The teacher emphasized the importance of integrity in academic work.",
+    "word": "integrity",
+    "choices": [
+      "Honesty",
+      "Ambition",
+      "Knowledge",
+      "Effort"
+    ],
+    "answer": "Honesty",
+    "id": 43
+  },
+  {
+    "sentence": "They sought refuge in a nearby village after the storm destroyed their home.",
+    "word": "refuge",
+    "choices": [
+      "Shelter",
+      "Gift",
+      "Signal",
+      "Money"
+    ],
+    "answer": "Shelter",
+    "id": 44
+  },
+  {
+    "sentence": "The architect was lauded for her innovative use of space and natural light.",
+    "word": "lauded",
+    "choices": [
+      "Praised",
+      "Tested",
+      "Mocked",
+      "Replaced"
+    ],
+    "answer": "Praised",
+    "id": 45
+  },
+  {
+    "sentence": "The lawyer presented a compelling argument that persuaded the jury to reconsider the verdict.",
+    "word": "compelling",
+    "choices": [
+      "Convincing",
+      "Lengthy",
+      "Complicated",
+      "Annoying"
+    ],
+    "answer": "Convincing",
+    "id": 46
+  },
+  {
+    "sentence": "The witness was reluctant to divulge any details about the incident.",
+    "word": "divulge",
+    "choices": [
+      "Reveal",
+      "Forget",
+      "Defend",
+      "Fabricate"
+    ],
+    "answer": "Reveal",
+    "id": 47
+  },
+  {
+    "sentence": "He has a reputation for being scrupulous in all his business dealings.",
+    "word": "scrupulous",
+    "choices": [
+      "Honest",
+      "Strict",
+      "Harsh",
+      "Rude"
+    ],
+    "answer": "Honest",
+    "id": 48
+  },
+  {
+    "sentence": "The atmosphere at the conference was cordial, despite some heated discussions.",
+    "word": "cordial",
+    "choices": [
+      "Friendly",
+      "Uncomfortable",
+      "Competitive",
+      "Formal"
+    ],
+    "answer": "Friendly",
+    "id": 49
+  },
+  {
+    "sentence": "Her perseverance in the face of setbacks earned her the respect of her peers.",
+    "word": "perseverance",
+    "choices": [
+      "Determination",
+      "Reputation",
+      "Obedience",
+      "Courage"
+    ],
+    "answer": "Determination",
+    "id": 50
+  },
+  {
+    "sentence": "They decided to expedite the shipment to meet the client\u2019s tight deadline.",
+    "word": "expedite",
+    "choices": [
+      "Speed up",
+      "Delay",
+      "Cancel",
+      "Inspect"
+    ],
+    "answer": "Speed up",
+    "id": 51
+  },
+  {
+    "sentence": "The solution was elegant in its simplicity and effectiveness.",
+    "word": "elegant",
+    "choices": [
+      "Graceful",
+      "Expensive",
+      "Old-fashioned",
+      "Typical"
+    ],
+    "answer": "Graceful",
+    "id": 52
+  },
+  {
+    "sentence": "The new software proved to be a valuable asset to the research team.",
+    "word": "asset",
+    "choices": [
+      "Advantage",
+      "Experiment",
+      "Tool",
+      "Result"
+    ],
+    "answer": "Advantage",
+    "id": 53
+  },
+  {
+    "sentence": "The principal reprimanded the student for repeatedly ignoring school rules.",
+    "word": "reprimanded",
+    "choices": [
+      "Scolded",
+      "Suspended",
+      "Watched",
+      "Rewarded"
+    ],
+    "answer": "Scolded",
+    "id": 54
+  },
+  {
+    "sentence": "She spoke in a candid manner, without trying to hide her true opinion.",
+    "word": "candid",
+    "choices": [
+      "Honest",
+      "Careful",
+      "Rude",
+      "Optimistic"
+    ],
+    "answer": "Honest",
+    "id": 55
+  },
+  {
+    "sentence": "The scientist\u2019s findings were groundbreaking and opened up new fields of research.",
+    "word": "groundbreaking",
+    "choices": [
+      "Innovative",
+      "Common",
+      "Reliable",
+      "Predictable"
+    ],
+    "answer": "Innovative",
+    "id": 56
+  },
+  {
+    "sentence": "We need to mitigate the impact of pollution before it becomes irreversible.",
+    "word": "mitigate",
+    "choices": [
+      "Reduce",
+      "Measure",
+      "Monitor",
+      "Ignore"
+    ],
+    "answer": "Reduce",
+    "id": 57
+  },
+  {
+    "sentence": "His claim was dubious and lacked substantial evidence.",
+    "word": "dubious",
+    "choices": [
+      "Uncertain",
+      "Detailed",
+      "Logical",
+      "Urgent"
+    ],
+    "answer": "Uncertain",
+    "id": 58
+  },
+  {
+    "sentence": "The software interface was intuitive and easy to navigate.",
+    "word": "intuitive",
+    "choices": [
+      "Easy to understand",
+      "Expensive",
+      "Colorful",
+      "Flexible"
+    ],
+    "answer": "Easy to understand",
+    "id": 59
+  },
+  {
+    "sentence": "The agreement imposed strict constraints on how the data could be used.",
+    "word": "constraints",
+    "choices": [
+      "Limits",
+      "Instructions",
+      "Errors",
+      "Goals"
+    ],
+    "answer": "Limits",
+    "id": 60
+  },
+  {
+    "sentence": "She demonstrated remarkable poise during the stressful interview.",
+    "word": "poise",
+    "choices": [
+      "Calmness",
+      "Silence",
+      "Speed",
+      "Focus"
+    ],
+    "answer": "Calmness",
+    "id": 61
+  },
+  {
+    "sentence": "The book delves into the intricacies of human relationships.",
+    "word": "intricacies",
+    "choices": [
+      "Details",
+      "Consequences",
+      "Limits",
+      "History"
+    ],
+    "answer": "Details",
+    "id": 62
+  },
+  {
+    "sentence": "The building\u2019s facade was designed to blend with the historic surroundings.",
+    "word": "facade",
+    "choices": [
+      "Exterior",
+      "Roof",
+      "Plan",
+      "Entrance"
+    ],
+    "answer": "Exterior",
+    "id": 63
+  },
+  {
+    "sentence": "They were dismayed by the company\u2019s decision to downsize.",
+    "word": "dismayed",
+    "choices": [
+      "Upset",
+      "Encouraged",
+      "Confused",
+      "Relieved"
+    ],
+    "answer": "Upset",
+    "id": 64
+  },
+  {
+    "sentence": "The manager delegated the responsibility to her assistant to save time.",
+    "word": "delegated",
+    "choices": [
+      "Assigned",
+      "Avoided",
+      "Demanded",
+      "Ignored"
+    ],
+    "answer": "Assigned",
+    "id": 65
+  },
+  {
+    "sentence": "The archaeologist unearthed a collection of artifacts dating back to the 5th century.",
+    "word": "artifacts",
+    "choices": [
+      "Objects",
+      "Maps",
+      "Animals",
+      "Images"
+    ],
+    "answer": "Objects",
+    "id": 66
+  },
+  {
+    "sentence": "His comment was meant to be humorous, but it came across as condescending.",
+    "word": "condescending",
+    "choices": [
+      "Patronizing",
+      "Casual",
+      "Respectful",
+      "Charming"
+    ],
+    "answer": "Patronizing",
+    "id": 67
+  },
+  {
+    "sentence": "The author used vivid imagery to evoke strong emotions in the reader.",
+    "word": "evoke",
+    "choices": [
+      "Bring out",
+      "Replace",
+      "Explain",
+      "Hide"
+    ],
+    "answer": "Bring out",
+    "id": 68
+  },
+  {
+    "sentence": "The two companies formed a coalition to lobby for new environmental regulations.",
+    "word": "coalition",
+    "choices": [
+      "Alliance",
+      "Campaign",
+      "Debate",
+      "Meeting"
+    ],
+    "answer": "Alliance",
+    "id": 69
+  },
+  {
+    "sentence": "Her voice had a soothing quality that calmed everyone in the room.",
+    "word": "soothing",
+    "choices": [
+      "Comforting",
+      "Boring",
+      "Loud",
+      "Plain"
+    ],
+    "answer": "Comforting",
+    "id": 70
+  },
+  {
+    "sentence": "The CEO\u2019s abrupt resignation sent shockwaves through the industry.",
+    "word": "abrupt",
+    "choices": [
+      "Sudden",
+      "Public",
+      "Final",
+      "Voluntary"
+    ],
+    "answer": "Sudden",
+    "id": 71
+  },
+  {
+    "sentence": "The activist advocated for reforms that would increase transparency in government.",
+    "word": "advocated",
+    "choices": [
+      "Supported",
+      "Questioned",
+      "Feared",
+      "Criticized"
+    ],
+    "answer": "Supported",
+    "id": 72
+  },
+  {
+    "sentence": "The committee issued a preliminary report before conducting a full investigation.",
+    "word": "preliminary",
+    "choices": [
+      "Initial",
+      "Final",
+      "Unofficial",
+      "Secret"
+    ],
+    "answer": "Initial",
+    "id": 73
+  },
+  {
+    "sentence": "They reached a consensus after hours of negotiation and compromise.",
+    "word": "consensus",
+    "choices": [
+      "Agreement",
+      "Deadline",
+      "Rule",
+      "Conflict"
+    ],
+    "answer": "Agreement",
+    "id": 74
+  },
+  {
+    "sentence": "The journalist was known for her incisive writing style and sharp analysis.",
+    "word": "incisive",
+    "choices": [
+      "Sharp",
+      "Formal",
+      "Dry",
+      "Objective"
+    ],
+    "answer": "Sharp",
+    "id": 75
+  },
+  {
+    "sentence": "Despite the complex nature of the project, he managed to synthesize the key points effectively.",
+    "word": "synthesize",
+    "choices": [
+      "Combine",
+      "Summarize",
+      "Correct",
+      "Ignore"
+    ],
+    "answer": "Combine",
+    "id": 76
+  },
+  {
+    "sentence": "The technician pinpointed the source of the error within minutes.",
+    "word": "pinpointed",
+    "choices": [
+      "Identified",
+      "Created",
+      "Explained",
+      "Ignored"
+    ],
+    "answer": "Identified",
+    "id": 77
+  },
+  {
+    "sentence": "The prosecutor argued that the defendant\u2019s actions were deliberate and malicious.",
+    "word": "malicious",
+    "choices": [
+      "Harmful",
+      "Clumsy",
+      "Illegal",
+      "Secretive"
+    ],
+    "answer": "Harmful",
+    "id": 78
+  },
+  {
+    "sentence": "The brochure highlighted the hotel's amenities, including a rooftop pool and spa.",
+    "word": "amenities",
+    "choices": [
+      "Facilities",
+      "Menus",
+      "Salaries",
+      "Investments"
+    ],
+    "answer": "Facilities",
+    "id": 79
+  },
+  {
+    "sentence": "The government imposed strict sanctions in response to the violations.",
+    "word": "sanctions",
+    "choices": [
+      "Penalties",
+      "Suggestions",
+      "Permissions",
+      "Messages"
+    ],
+    "answer": "Penalties",
+    "id": 80
+  },
+  {
+    "sentence": "She conveyed her disappointment through a carefully worded letter.",
+    "word": "conveyed",
+    "choices": [
+      "Expressed",
+      "Hid",
+      "Delayed",
+      "Caused"
+    ],
+    "answer": "Expressed",
+    "id": 81
+  },
+  {
+    "sentence": "Their response to the disaster was swift and decisive.",
+    "word": "decisive",
+    "choices": [
+      "Clear",
+      "Public",
+      "Emotional",
+      "Neutral"
+    ],
+    "answer": "Clear",
+    "id": 82
+  },
+  {
+    "sentence": "The new regulations will drastically alter how businesses operate.",
+    "word": "alter",
+    "choices": [
+      "Change",
+      "Delay",
+      "Limit",
+      "Discuss"
+    ],
+    "answer": "Change",
+    "id": 83
+  },
+  {
+    "sentence": "She has a keen interest in emerging technologies and their societal impact.",
+    "word": "keen",
+    "choices": [
+      "Strong",
+      "Rare",
+      "Strange",
+      "Basic"
+    ],
+    "answer": "Strong",
+    "id": 84
+  },
+  {
+    "sentence": "The instructions were so convoluted that few people could understand them.",
+    "word": "convoluted",
+    "choices": [
+      "Complex",
+      "Direct",
+      "Obvious",
+      "Accurate"
+    ],
+    "answer": "Complex",
+    "id": 85
+  },
+  {
+    "sentence": "He found the speaker\u2019s argument persuasive and changed his mind.",
+    "word": "persuasive",
+    "choices": [
+      "Convincing",
+      "Polite",
+      "Subtle",
+      "Complicated"
+    ],
+    "answer": "Convincing",
+    "id": 86
+  },
+  {
+    "sentence": "The athlete attributed her success to years of hard training and discipline.",
+    "word": "attributed",
+    "choices": [
+      "Credited",
+      "Expected",
+      "Denied",
+      "Explained"
+    ],
+    "answer": "Credited",
+    "id": 87
+  },
+  {
+    "sentence": "The manager faced a dilemma: support innovation or stick with the proven method.",
+    "word": "dilemma",
+    "choices": [
+      "Difficult choice",
+      "Strong opinion",
+      "Successful plan",
+      "Big opportunity"
+    ],
+    "answer": "Difficult choice",
+    "id": 88
+  },
+  {
+    "sentence": "The consultant offered a viable solution to the company\u2019s financial issues.",
+    "word": "viable",
+    "choices": [
+      "Workable",
+      "Urgent",
+      "Popular",
+      "Expensive"
+    ],
+    "answer": "Workable",
+    "id": 89
+  },
+  {
+    "sentence": "His tone was subtle, but the meaning behind his words was unmistakable.",
+    "word": "subtle",
+    "choices": [
+      "Slight",
+      "Direct",
+      "Urgent",
+      "Repetitive"
+    ],
+    "answer": "Slight",
+    "id": 90
+  },
+  {
+    "sentence": "The two organizations formed a strategic partnership to expand their reach.",
+    "word": "strategic",
+    "choices": [
+      "Planned",
+      "Expensive",
+      "Risky",
+      "Global"
+    ],
+    "answer": "Planned",
+    "id": 91
+  },
+  {
+    "sentence": "The employee showed initiative by proposing new ways to improve efficiency.",
+    "word": "initiative",
+    "choices": [
+      "Proactiveness",
+      "Instruction",
+      "Agreement",
+      "Control"
+    ],
+    "answer": "Proactiveness",
+    "id": 92
+  },
+  {
+    "sentence": "The forecast indicated a potential surge in demand over the next quarter.",
+    "word": "surge",
+    "choices": [
+      "Increase",
+      "Fall",
+      "Plan",
+      "Pause"
+    ],
+    "answer": "Increase",
+    "id": 93
+  },
+  {
+    "sentence": "The report included a concise summary of the findings and recommendations.",
+    "word": "concise",
+    "choices": [
+      "Brief",
+      "Formal",
+      "Careful",
+      "Thorough"
+    ],
+    "answer": "Brief",
+    "id": 94
+  },
+  {
+    "sentence": "The company\u2019s mission is to foster creativity and collaboration.",
+    "word": "foster",
+    "choices": [
+      "Encourage",
+      "Prevent",
+      "Control",
+      "Measure"
+    ],
+    "answer": "Encourage",
+    "id": 95
+  },
+  {
+    "sentence": "The manager implemented a robust training program to improve employee performance.",
+    "word": "robust",
+    "choices": [
+      "Strong",
+      "Slow",
+      "Cheap",
+      "Basic"
+    ],
+    "answer": "Strong",
+    "id": 96
+  },
+  {
+    "sentence": "The lawyer tried to refute the accusations with solid evidence and testimony.",
+    "word": "refute",
+    "choices": [
+      "Disprove",
+      "Repeat",
+      "Accept",
+      "Hide"
+    ],
+    "answer": "Disprove",
+    "id": 97
+  },
+  {
+    "sentence": "The policy aims to promote sustainability by reducing waste and conserving resources.",
+    "word": "sustainability",
+    "choices": [
+      "Environmental responsibility",
+      "Profitability",
+      "Productivity",
+      "Tradition"
+    ],
+    "answer": "Environmental responsibility",
+    "id": 98
+  },
+  {
+    "sentence": "The keynote speaker captivated the audience with her dynamic storytelling.",
+    "word": "captivated",
+    "choices": [
+      "Fascinated",
+      "Surprised",
+      "Interrupted",
+      "Annoyed"
+    ],
+    "answer": "Fascinated",
+    "id": 99
+  },
+  {
+    "sentence": "The team brainstormed a list of feasible solutions to the pressing issue.",
+    "word": "feasible",
+    "choices": [
+      "Possible",
+      "Expensive",
+      "Perfect",
+      "Delayed"
+    ],
+    "answer": "Possible",
+    "id": 100
+  },
+  {
+    "sentence": "The therapist encouraged him to confront his fears rather than avoid them.",
+    "word": "confront",
+    "choices": [
+      "Face",
+      "Ignore",
+      "Describe",
+      "Compare"
+    ],
+    "answer": "Face",
+    "id": 101
+  },
+  {
+    "sentence": "The factory emitted toxic chemicals, which led to public outcry.",
+    "word": "emitted",
+    "choices": [
+      "Released",
+      "Detected",
+      "Cleaned",
+      "Measured"
+    ],
+    "answer": "Released",
+    "id": 102
+  },
+  {
+    "sentence": "The proposal was rejected due to its vague objectives and lack of evidence.",
+    "word": "vague",
+    "choices": [
+      "Unclear",
+      "Detailed",
+      "Outdated",
+      "Harsh"
+    ],
+    "answer": "Unclear",
+    "id": 103
+  },
+  {
+    "sentence": "The government pledged to allocate more resources to education.",
+    "word": "allocate",
+    "choices": [
+      "Distribute",
+      "Request",
+      "Reduce",
+      "Change"
+    ],
+    "answer": "Distribute",
+    "id": 104
+  },
+  {
+    "sentence": "Her generosity toward the less fortunate earned her community-wide admiration.",
+    "word": "generosity",
+    "choices": [
+      "Kindness",
+      "Fame",
+      "Wealth",
+      "Energy"
+    ],
+    "answer": "Kindness",
+    "id": 105
+  },
+  {
+    "sentence": "The response to the announcement was lukewarm, with few people showing enthusiasm.",
+    "word": "lukewarm",
+    "choices": [
+      "Unenthusiastic",
+      "Supportive",
+      "Aggressive",
+      "Confused"
+    ],
+    "answer": "Unenthusiastic",
+    "id": 106
+  },
+  {
+    "sentence": "The committee was impressed by the applicant's credentials and offered her the position.",
+    "word": "credentials",
+    "choices": [
+      "Qualifications",
+      "Opinions",
+      "Requests",
+      "Schedules"
+    ],
+    "answer": "Qualifications",
+    "id": 107
+  },
+  {
+    "sentence": "The new intern was eager to assimilate into the company culture.",
+    "word": "assimilate",
+    "choices": [
+      "Adapt",
+      "Resist",
+      "Question",
+      "Direct"
+    ],
+    "answer": "Adapt",
+    "id": 108
+  },
+  {
+    "sentence": "They issued a formal apology in an attempt to rectify their earlier mistake.",
+    "word": "rectify",
+    "choices": [
+      "Fix",
+      "Repeat",
+      "Defend",
+      "Explain"
+    ],
+    "answer": "Fix",
+    "id": 109
+  },
+  {
+    "sentence": "The teacher\u2019s instructions were coherent and easy to follow.",
+    "word": "coherent",
+    "choices": [
+      "Logical",
+      "Strict",
+      "Funny",
+      "Careless"
+    ],
+    "answer": "Logical",
+    "id": 110
+  },
+  {
+    "sentence": "He has a penchant for classical music and attends concerts regularly.",
+    "word": "penchant",
+    "choices": [
+      "Liking",
+      "Memory",
+      "Fear",
+      "Habit"
+    ],
+    "answer": "Liking",
+    "id": 111
+  },
+  {
+    "sentence": "The diplomat was praised for her tact in handling the sensitive negotiations.",
+    "word": "tact",
+    "choices": [
+      "Diplomacy",
+      "Speed",
+      "Power",
+      "Neutrality"
+    ],
+    "answer": "Diplomacy",
+    "id": 112
+  },
+  {
+    "sentence": "The city launched a campaign to revitalize the downtown area.",
+    "word": "revitalize",
+    "choices": [
+      "Renew",
+      "Restrict",
+      "Move",
+      "Advertise"
+    ],
+    "answer": "Renew",
+    "id": 113
+  },
+  {
+    "sentence": "The documentary exposed the appalling conditions in the factory.",
+    "word": "appalling",
+    "choices": [
+      "Shocking",
+      "Ordinary",
+      "Expected",
+      "Pleasing"
+    ],
+    "answer": "Shocking",
+    "id": 114
+  },
+  {
+    "sentence": "The scientist published a comprehensive report detailing her findings.",
+    "word": "comprehensive",
+    "choices": [
+      "Thorough",
+      "Brief",
+      "Repetitive",
+      "Tentative"
+    ],
+    "answer": "Thorough",
+    "id": 115
+  },
+  {
+    "sentence": "The new manager was known for her integrity and fair decision-making.",
+    "word": "integrity",
+    "choices": [
+      "Honesty",
+      "Experience",
+      "Punctuality",
+      "Friendliness"
+    ],
+    "answer": "Honesty",
+    "id": 116
+  },
+  {
+    "sentence": "The technician had to calibrate the equipment before starting the experiment.",
+    "word": "calibrate",
+    "choices": [
+      "Adjust",
+      "Install",
+      "Destroy",
+      "Improve"
+    ],
+    "answer": "Adjust",
+    "id": 117
+  },
+  {
+    "sentence": "His arguments were valid but lacked empirical support.",
+    "word": "empirical",
+    "choices": [
+      "Based on evidence",
+      "Controversial",
+      "Popular",
+      "Negative"
+    ],
+    "answer": "Based on evidence",
+    "id": 118
+  },
+  {
+    "sentence": "The merger had a profound impact on the structure of the company.",
+    "word": "profound",
+    "choices": [
+      "Deep",
+      "Temporary",
+      "Negative",
+      "Strange"
+    ],
+    "answer": "Deep",
+    "id": 119
+  },
+  {
+    "sentence": "The candidate\u2019s speech was filled with rhetoric but lacked substance.",
+    "word": "rhetoric",
+    "choices": [
+      "Persuasive language",
+      "Statistics",
+      "Experience",
+      "Grammar"
+    ],
+    "answer": "Persuasive language",
+    "id": 120
+  },
+  {
+    "sentence": "The panel scrutinized every aspect of the proposal before making a final decision.",
+    "word": "scrutinized",
+    "choices": [
+      "Examined",
+      "Delayed",
+      "Approved",
+      "Avoided"
+    ],
+    "answer": "Examined",
+    "id": 121
+  },
+  {
+    "sentence": "The politician made an ambiguous statement that could be interpreted in several ways.",
+    "word": "ambiguous",
+    "choices": [
+      "Unclear",
+      "Hurtful",
+      "Lengthy",
+      "Factual"
+    ],
+    "answer": "Unclear",
+    "id": 122
+  },
+  {
+    "sentence": "The artist's rendition of the landscape was both imaginative and technically skilled.",
+    "word": "rendition",
+    "choices": [
+      "Interpretation",
+      "Story",
+      "Creation",
+      "Memory"
+    ],
+    "answer": "Interpretation",
+    "id": 123
+  },
+  {
+    "sentence": "She quickly adapted to the new software and became proficient in its use.",
+    "word": "proficient",
+    "choices": [
+      "Skilled",
+      "Interested",
+      "Licensed",
+      "Familiar"
+    ],
+    "answer": "Skilled",
+    "id": 124
+  },
+  {
+    "sentence": "The volunteers distributed leaflets to raise awareness about the cause.",
+    "word": "distributed",
+    "choices": [
+      "Handed out",
+      "Collected",
+      "Advertised",
+      "Discussed"
+    ],
+    "answer": "Handed out",
+    "id": 125
+  },
+  {
+    "sentence": "The company emphasized the importance of innovation and continuous improvement.",
+    "word": "innovation",
+    "choices": [
+      "New idea",
+      "Rule",
+      "Tool",
+      "Collaboration"
+    ],
+    "answer": "New idea",
+    "id": 126
+  },
+  {
+    "sentence": "The movie was criticized for its implausible plot and weak character development.",
+    "word": "implausible",
+    "choices": [
+      "Unbelievable",
+      "Violent",
+      "Predictable",
+      "Sad"
+    ],
+    "answer": "Unbelievable",
+    "id": 127
+  },
+  {
+    "sentence": "The patient showed gradual improvement after receiving the new treatment.",
+    "word": "gradual",
+    "choices": [
+      "Slow",
+      "Noticeable",
+      "Obvious",
+      "Irregular"
+    ],
+    "answer": "Slow",
+    "id": 128
+  },
+  {
+    "sentence": "His comments had a profound influence on the direction of the conversation.",
+    "word": "influence",
+    "choices": [
+      "Effect",
+      "Tone",
+      "Summary",
+      "Change"
+    ],
+    "answer": "Effect",
+    "id": 129
+  },
+  {
+    "sentence": "The country is known for its rich cultural heritage and historical landmarks.",
+    "word": "heritage",
+    "choices": [
+      "Tradition",
+      "Success",
+      "Language",
+      "Government"
+    ],
+    "answer": "Tradition",
+    "id": 130
+  },
+  {
+    "sentence": "The noise from the construction site was a constant distraction.",
+    "word": "distraction",
+    "choices": [
+      "Interruption",
+      "Threat",
+      "Plan",
+      "Task"
+    ],
+    "answer": "Interruption",
+    "id": 131
+  },
+  {
+    "sentence": "The project manager delegated tasks based on each team member's strengths.",
+    "word": "delegated",
+    "choices": [
+      "Assigned",
+      "Observed",
+      "Praised",
+      "Limited"
+    ],
+    "answer": "Assigned",
+    "id": 132
+  },
+  {
+    "sentence": "His sarcastic tone undermined the seriousness of the discussion.",
+    "word": "undermined",
+    "choices": [
+      "Weakened",
+      "Explained",
+      "Changed",
+      "Repeated"
+    ],
+    "answer": "Weakened",
+    "id": 133
+  },
+  {
+    "sentence": "The board will convene next week to finalize the new budget.",
+    "word": "convene",
+    "choices": [
+      "Meet",
+      "Vote",
+      "Cancel",
+      "Disagree"
+    ],
+    "answer": "Meet",
+    "id": 134
+  },
+  {
+    "sentence": "The final decision must be consistent with the organization\u2019s core values.",
+    "word": "consistent",
+    "choices": [
+      "Aligned",
+      "Separate",
+      "Identical",
+      "Basic"
+    ],
+    "answer": "Aligned",
+    "id": 135
+  },
+  {
+    "sentence": "The speaker offered a compelling narrative that held the audience\u2019s attention throughout.",
+    "word": "narrative",
+    "choices": [
+      "Story",
+      "Fact",
+      "Interview",
+      "Summary"
+    ],
+    "answer": "Story",
+    "id": 136
+  },
+  {
+    "sentence": "The researcher acknowledged the limitations of her study in the conclusion.",
+    "word": "acknowledged",
+    "choices": [
+      "Admitted",
+      "Denied",
+      "Reviewed",
+      "Proved"
+    ],
+    "answer": "Admitted",
+    "id": 137
+  },
+  {
+    "sentence": "Their lifestyle was frugal but comfortable, with minimal unnecessary expenses.",
+    "word": "frugal",
+    "choices": [
+      "Economical",
+      "Poor",
+      "Boring",
+      "Traditional"
+    ],
+    "answer": "Economical",
+    "id": 138
+  },
+  {
+    "sentence": "He tried to deflect blame by pointing out flaws in the system.",
+    "word": "deflect",
+    "choices": [
+      "Redirect",
+      "Explain",
+      "Deny",
+      "Absorb"
+    ],
+    "answer": "Redirect",
+    "id": 139
+  },
+  {
+    "sentence": "The editor urged the writer to eliminate redundant expressions from the article.",
+    "word": "redundant",
+    "choices": [
+      "Unnecessary",
+      "Formal",
+      "Accurate",
+      "Unique"
+    ],
+    "answer": "Unnecessary",
+    "id": 140
+  },
+  {
+    "sentence": "The engineer devised a clever mechanism to increase energy efficiency.",
+    "word": "devised",
+    "choices": [
+      "Invented",
+      "Followed",
+      "Rejected",
+      "Destroyed"
+    ],
+    "answer": "Invented",
+    "id": 141
+  },
+  {
+    "sentence": "The diplomat was accused of breaching international protocol.",
+    "word": "breaching",
+    "choices": [
+      "Violating",
+      "Explaining",
+      "Following",
+      "Hiding"
+    ],
+    "answer": "Violating",
+    "id": 142
+  },
+  {
+    "sentence": "The instructions were explicit and left no room for misunderstanding.",
+    "word": "explicit",
+    "choices": [
+      "Clear",
+      "Hidden",
+      "Strict",
+      "Polite"
+    ],
+    "answer": "Clear",
+    "id": 143
+  },
+  {
+    "sentence": "The program\u2019s launch was hindered by a series of technical problems.",
+    "word": "hindered",
+    "choices": [
+      "Delayed",
+      "Explained",
+      "Analyzed",
+      "Revealed"
+    ],
+    "answer": "Delayed",
+    "id": 144
+  },
+  {
+    "sentence": "They offered a plausible explanation for the unusual results.",
+    "word": "plausible",
+    "choices": [
+      "Believable",
+      "Strange",
+      "Positive",
+      "Tentative"
+    ],
+    "answer": "Believable",
+    "id": 145
+  },
+  {
+    "sentence": "The professor gave a lucid explanation of the theory, making it easier to understand.",
+    "word": "lucid",
+    "choices": [
+      "Clear",
+      "Brief",
+      "Unusual",
+      "Passive"
+    ],
+    "answer": "Clear",
+    "id": 146
+  },
+  {
+    "sentence": "Her account was consistent with the eyewitness testimony, which added credibility to her statement.",
+    "word": "credibility",
+    "choices": [
+      "Believability",
+      "Speed",
+      "Focus",
+      "Responsibility"
+    ],
+    "answer": "Believability",
+    "id": 147
+  },
+  {
+    "sentence": "The new medication alleviated his symptoms within a few hours.",
+    "word": "alleviated",
+    "choices": [
+      "Relieved",
+      "Caused",
+      "Ignored",
+      "Increased"
+    ],
+    "answer": "Relieved",
+    "id": 148
+  },
+  {
+    "sentence": "The product has a defect that compromises its durability.",
+    "word": "durability",
+    "choices": [
+      "Strength",
+      "Shape",
+      "Flavor",
+      "Price"
+    ],
+    "answer": "Strength",
+    "id": 149
+  },
+  {
+    "sentence": "The official report was concise and focused only on the key facts.",
+    "word": "concise",
+    "choices": [
+      "Brief",
+      "Unclear",
+      "Detailed",
+      "Tentative"
+    ],
+    "answer": "Brief",
+    "id": 150
+  },
+  {
+    "sentence": "The lawyer argued that the contract was legally binding and enforceable.",
+    "word": "enforceable",
+    "choices": [
+      "Legally valid",
+      "Outdated",
+      "Informal",
+      "Questionable"
+    ],
+    "answer": "Legally valid",
+    "id": 151
+  },
+  {
+    "sentence": "The athlete\u2019s perseverance was evident in his commitment to daily training.",
+    "word": "perseverance",
+    "choices": [
+      "Persistence",
+      "Injury",
+      "Talent",
+      "Discipline"
+    ],
+    "answer": "Persistence",
+    "id": 152
+  },
+  {
+    "sentence": "Her tone was dismissive, which made it clear she had no interest in the suggestion.",
+    "word": "dismissive",
+    "choices": [
+      "Indifferent",
+      "Angry",
+      "Rude",
+      "Sarcastic"
+    ],
+    "answer": "Indifferent",
+    "id": 153
+  },
+  {
+    "sentence": "They were urged to comply with the new regulations to avoid penalties.",
+    "word": "comply",
+    "choices": [
+      "Follow",
+      "Challenge",
+      "Understand",
+      "Negotiate"
+    ],
+    "answer": "Follow",
+    "id": 154
+  },
+  {
+    "sentence": "The town endured a prolonged drought that affected crop production.",
+    "word": "prolonged",
+    "choices": [
+      "Extended",
+      "Harsh",
+      "Sudden",
+      "Intense"
+    ],
+    "answer": "Extended",
+    "id": 155
+  },
+  {
+    "sentence": "The findings of the report were deemed controversial and sparked debate.",
+    "word": "controversial",
+    "choices": [
+      "Debatable",
+      "Unpopular",
+      "Unknown",
+      "Scientific"
+    ],
+    "answer": "Debatable",
+    "id": 156
+  },
+  {
+    "sentence": "The client requested a refund due to the product\u2019s inferior quality.",
+    "word": "inferior",
+    "choices": [
+      "Lower",
+      "Unfamiliar",
+      "Unwanted",
+      "Authentic"
+    ],
+    "answer": "Lower",
+    "id": 157
+  },
+  {
+    "sentence": "The spokesperson reiterated the company\u2019s commitment to sustainability.",
+    "word": "reiterated",
+    "choices": [
+      "Repeated",
+      "Doubted",
+      "Avoided",
+      "Questioned"
+    ],
+    "answer": "Repeated",
+    "id": 158
+  },
+  {
+    "sentence": "The medication must be stored under specific conditions to remain potent.",
+    "word": "potent",
+    "choices": [
+      "Strong",
+      "Toxic",
+      "Rare",
+      "Reliable"
+    ],
+    "answer": "Strong",
+    "id": 159
+  },
+  {
+    "sentence": "The painting\u2019s authenticity was verified by a panel of experts.",
+    "word": "authenticity",
+    "choices": [
+      "Genuineness",
+      "Condition",
+      "Size",
+      "Popularity"
+    ],
+    "answer": "Genuineness",
+    "id": 160
+  },
+  {
+    "sentence": "The company was penalized for breaching labor laws.",
+    "word": "penalized",
+    "choices": [
+      "Punished",
+      "Promoted",
+      "Identified",
+      "Inspected"
+    ],
+    "answer": "Punished",
+    "id": 161
+  },
+  {
+    "sentence": "The teacher tried to foster an inclusive and respectful classroom environment.",
+    "word": "inclusive",
+    "choices": [
+      "Welcoming",
+      "Strict",
+      "Competitive",
+      "Reluctant"
+    ],
+    "answer": "Welcoming",
+    "id": 162
+  },
+  {
+    "sentence": "The evidence was compelling enough to warrant a deeper investigation.",
+    "word": "warrant",
+    "choices": [
+      "Justify",
+      "Delay",
+      "Condemn",
+      "Explain"
+    ],
+    "answer": "Justify",
+    "id": 163
+  },
+  {
+    "sentence": "The book provides a chronological account of the events leading to the war.",
+    "word": "chronological",
+    "choices": [
+      "Time-ordered",
+      "Accurate",
+      "Historical",
+      "Scientific"
+    ],
+    "answer": "Time-ordered",
+    "id": 164
+  },
+  {
+    "sentence": "The tenant was evicted for failing to pay rent over several months.",
+    "word": "evicted",
+    "choices": [
+      "Removed",
+      "Warned",
+      "Tricked",
+      "Relocated"
+    ],
+    "answer": "Removed",
+    "id": 165
+  },
+  {
+    "sentence": "The student expressed gratitude for the professor\u2019s help on the project.",
+    "word": "gratitude",
+    "choices": [
+      "Thankfulness",
+      "Effort",
+      "Support",
+      "Responsibility"
+    ],
+    "answer": "Thankfulness",
+    "id": 166
+  },
+  {
+    "sentence": "The author crafted a poignant story that touched readers deeply.",
+    "word": "poignant",
+    "choices": [
+      "Emotionally moving",
+      "Complicated",
+      "Clever",
+      "Disturbing"
+    ],
+    "answer": "Emotionally moving",
+    "id": 167
+  },
+  {
+    "sentence": "The government subsidized renewable energy projects to encourage innovation.",
+    "word": "subsidized",
+    "choices": [
+      "Financially supported",
+      "Prohibited",
+      "Tested",
+      "Organized"
+    ],
+    "answer": "Financially supported",
+    "id": 168
+  },
+  {
+    "sentence": "His decision to resign was prompted by growing tensions in the workplace.",
+    "word": "prompted",
+    "choices": [
+      "Caused",
+      "Explained",
+      "Announced",
+      "Shared"
+    ],
+    "answer": "Caused",
+    "id": 169
+  },
+  {
+    "sentence": "The judge\u2019s ruling was fair and based on a thorough review of the facts.",
+    "word": "ruling",
+    "choices": [
+      "Decision",
+      "Meeting",
+      "Agreement",
+      "Vote"
+    ],
+    "answer": "Decision",
+    "id": 170
+  },
+  {
+    "sentence": "The two companies merged to consolidate their market position.",
+    "word": "consolidate",
+    "choices": [
+      "Strengthen",
+      "Weaken",
+      "Compete",
+      "Replace"
+    ],
+    "answer": "Strengthen",
+    "id": 171
+  },
+  {
+    "sentence": "The teacher used a diagram to illustrate the concept more clearly.",
+    "word": "illustrate",
+    "choices": [
+      "Explain",
+      "Draw",
+      "Erase",
+      "Predict"
+    ],
+    "answer": "Explain",
+    "id": 172
+  },
+  {
+    "sentence": "The actor's performance was so compelling that the audience was completely engrossed.",
+    "word": "engrossed",
+    "choices": [
+      "Absorbed",
+      "Impressed",
+      "Distracted",
+      "Relieved"
+    ],
+    "answer": "Absorbed",
+    "id": 173
+  },
+  {
+    "sentence": "The company issued a statement to clarify its stance on the matter.",
+    "word": "clarify",
+    "choices": [
+      "Explain",
+      "Change",
+      "Repeat",
+      "Question"
+    ],
+    "answer": "Explain",
+    "id": 174
+  },
+  {
+    "sentence": "The village relies on agriculture as its primary means of subsistence.",
+    "word": "subsistence",
+    "choices": [
+      "Survival",
+      "Wealth",
+      "Transportation",
+      "Occupation"
+    ],
+    "answer": "Survival",
+    "id": 175
+  },
+  {
+    "sentence": "The lawyer refuted the accusation with concrete evidence.",
+    "word": "refuted",
+    "choices": [
+      "Disproved",
+      "Confirmed",
+      "Avoided",
+      "Postponed"
+    ],
+    "answer": "Disproved",
+    "id": 176
+  },
+  {
+    "sentence": "The organization has implemented a new initiative to curb plastic waste.",
+    "word": "curb",
+    "choices": [
+      "Reduce",
+      "Expand",
+      "Distribute",
+      "Examine"
+    ],
+    "answer": "Reduce",
+    "id": 177
+  },
+  {
+    "sentence": "He was a staunch supporter of environmental reforms.",
+    "word": "staunch",
+    "choices": [
+      "Loyal",
+      "Temporary",
+      "Quiet",
+      "Young"
+    ],
+    "answer": "Loyal",
+    "id": 178
+  },
+  {
+    "sentence": "The study revealed a correlation between screen time and sleep quality.",
+    "word": "correlation",
+    "choices": [
+      "Connection",
+      "Cause",
+      "Difference",
+      "Effect"
+    ],
+    "answer": "Connection",
+    "id": 179
+  },
+  {
+    "sentence": "The marketing campaign was ineffective because it lacked a clear message.",
+    "word": "ineffective",
+    "choices": [
+      "Unsuccessful",
+      "Misleading",
+      "Confusing",
+      "Negative"
+    ],
+    "answer": "Unsuccessful",
+    "id": 180
+  },
+  {
+    "sentence": "The judge imposed a harsh penalty due to the seriousness of the crime.",
+    "word": "imposed",
+    "choices": [
+      "Enforced",
+      "Recommended",
+      "Announced",
+      "Discussed"
+    ],
+    "answer": "Enforced",
+    "id": 181
+  },
+  {
+    "sentence": "The data was compiled into a single report for clarity.",
+    "word": "compiled",
+    "choices": [
+      "Collected",
+      "Deleted",
+      "Judged",
+      "Tested"
+    ],
+    "answer": "Collected",
+    "id": 182
+  },
+  {
+    "sentence": "The two leaders reached a diplomatic resolution to avoid further conflict.",
+    "word": "diplomatic",
+    "choices": [
+      "Tactful",
+      "Urgent",
+      "Delayed",
+      "Rigid"
+    ],
+    "answer": "Tactful",
+    "id": 183
+  },
+  {
+    "sentence": "Her enthusiasm for the project was contagious and motivated others.",
+    "word": "contagious",
+    "choices": [
+      "Infectious",
+      "Distracting",
+      "Reckless",
+      "Temporary"
+    ],
+    "answer": "Infectious",
+    "id": 184
+  },
+  {
+    "sentence": "The proposal lacked substance and was therefore rejected.",
+    "word": "substance",
+    "choices": [
+      "Content",
+      "Popularity",
+      "Urgency",
+      "Support"
+    ],
+    "answer": "Content",
+    "id": 185
+  },
+  {
+    "sentence": "The speaker elaborated on her point with several detailed examples.",
+    "word": "elaborated",
+    "choices": [
+      "Expanded",
+      "Dismissed",
+      "Argued",
+      "Removed"
+    ],
+    "answer": "Expanded",
+    "id": 186
+  },
+  {
+    "sentence": "Their optimism remained intact despite the series of setbacks.",
+    "word": "intact",
+    "choices": [
+      "Undamaged",
+      "Flexible",
+      "Visible",
+      "Expected"
+    ],
+    "answer": "Undamaged",
+    "id": 187
+  },
+  {
+    "sentence": "The program aims to equip students with the skills needed in modern workplaces.",
+    "word": "equip",
+    "choices": [
+      "Provide",
+      "Test",
+      "Compare",
+      "Rate"
+    ],
+    "answer": "Provide",
+    "id": 188
+  },
+  {
+    "sentence": "The novel explores the plight of individuals living under authoritarian rule.",
+    "word": "plight",
+    "choices": [
+      "Struggle",
+      "Action",
+      "Voice",
+      "Belief"
+    ],
+    "answer": "Struggle",
+    "id": 189
+  },
+  {
+    "sentence": "The interviewer posed a hypothetical question to see how the candidate would react.",
+    "word": "hypothetical",
+    "choices": [
+      "Imaginary",
+      "Legal",
+      "Formal",
+      "Basic"
+    ],
+    "answer": "Imaginary",
+    "id": 190
+  },
+  {
+    "sentence": "The lecture was dense with information and required focused attention.",
+    "word": "dense",
+    "choices": [
+      "Packed",
+      "Difficult",
+      "Logical",
+      "Casual"
+    ],
+    "answer": "Packed",
+    "id": 191
+  },
+  {
+    "sentence": "He was hesitant to disclose personal details during the interview.",
+    "word": "disclose",
+    "choices": [
+      "Reveal",
+      "Forget",
+      "Analyze",
+      "Assume"
+    ],
+    "answer": "Reveal",
+    "id": 192
+  },
+  {
+    "sentence": "The city\u2019s infrastructure struggled to accommodate the rapid population growth.",
+    "word": "infrastructure",
+    "choices": [
+      "Basic systems",
+      "Laws",
+      "Politics",
+      "Traditions"
+    ],
+    "answer": "Basic systems",
+    "id": 193
+  },
+  {
+    "sentence": "The gallery showcased an eclectic mix of modern and traditional artwork.",
+    "word": "eclectic",
+    "choices": [
+      "Varied",
+      "Controversial",
+      "Historic",
+      "Expensive"
+    ],
+    "answer": "Varied",
+    "id": 194
+  },
+  {
+    "sentence": "The theory remains speculative due to a lack of concrete evidence.",
+    "word": "speculative",
+    "choices": [
+      "Unproven",
+      "Complex",
+      "Irrational",
+      "Accurate"
+    ],
+    "answer": "Unproven",
+    "id": 195
+  },
+  {
+    "sentence": "The manager urged everyone to adhere to the updated safety protocols.",
+    "word": "adhere",
+    "choices": [
+      "Follow",
+      "Announce",
+      "Ignore",
+      "Evaluate"
+    ],
+    "answer": "Follow",
+    "id": 196
+  },
+  {
+    "sentence": "The defendant's testimony contradicted the evidence shown in court.",
+    "word": "contradicted",
+    "choices": [
+      "Opposed",
+      "Explained",
+      "Supported",
+      "Complicated"
+    ],
+    "answer": "Opposed",
+    "id": 197
+  },
+  {
+    "sentence": "The island was known for its abundant natural resources.",
+    "word": "abundant",
+    "choices": [
+      "Plentiful",
+      "Distant",
+      "Endangered",
+      "Minimal"
+    ],
+    "answer": "Plentiful",
+    "id": 198
+  },
+  {
+    "sentence": "The error was due to a flaw in the software\u2019s underlying logic.",
+    "word": "flaw",
+    "choices": [
+      "Weakness",
+      "Feature",
+      "Instruction",
+      "Layer"
+    ],
+    "answer": "Weakness",
+    "id": 199
+  },
+  {
+    "sentence": "The company sought to diversify its portfolio by investing in green energy.",
+    "word": "diversify",
+    "choices": [
+      "Expand",
+      "Simplify",
+      "Clarify",
+      "Delay"
+    ],
+    "answer": "Expand",
+    "id": 200
+  },
+  {
+    "sentence": "The judge remained impartial throughout the trial.",
+    "word": "impartial",
+    "choices": [
+      "Neutral",
+      "Sympathetic",
+      "Strict",
+      "Outraged"
+    ],
+    "answer": "Neutral",
+    "id": 201
+  },
+  {
+    "sentence": "The witness provided a vivid description of the events she observed.",
+    "word": "vivid",
+    "choices": [
+      "Detailed",
+      "Quick",
+      "Simple",
+      "Accurate"
+    ],
+    "answer": "Detailed",
+    "id": 202
+  },
+  {
+    "sentence": "He responded with remarkable composure despite the aggressive questioning.",
+    "word": "composure",
+    "choices": [
+      "Calmness",
+      "Anger",
+      "Delay",
+      "Energy"
+    ],
+    "answer": "Calmness",
+    "id": 203
+  },
+  {
+    "sentence": "The decision had unintended consequences that affected the entire community.",
+    "word": "consequences",
+    "choices": [
+      "Results",
+      "Warnings",
+      "Risks",
+      "Possibilities"
+    ],
+    "answer": "Results",
+    "id": 204
+  },
+  {
+    "sentence": "The article highlights a growing disparity between urban and rural education.",
+    "word": "disparity",
+    "choices": [
+      "Difference",
+      "Agreement",
+      "Trend",
+      "Connection"
+    ],
+    "answer": "Difference",
+    "id": 205
+  },
+  {
+    "sentence": "The patient exhibited a positive response to the new treatment.",
+    "word": "exhibited",
+    "choices": [
+      "Displayed",
+      "Denied",
+      "Feared",
+      "Requested"
+    ],
+    "answer": "Displayed",
+    "id": 206
+  },
+  {
+    "sentence": "Her performance was exemplary, setting a high standard for others.",
+    "word": "exemplary",
+    "choices": [
+      "Outstanding",
+      "Surprising",
+      "Incomplete",
+      "Average"
+    ],
+    "answer": "Outstanding",
+    "id": 207
+  },
+  {
+    "sentence": "The company will incur heavy losses if the project fails.",
+    "word": "incur",
+    "choices": [
+      "Suffer",
+      "Prevent",
+      "Report",
+      "Delay"
+    ],
+    "answer": "Suffer",
+    "id": 208
+  },
+  {
+    "sentence": "He is known for his eloquent speeches that inspire large audiences.",
+    "word": "eloquent",
+    "choices": [
+      "Persuasive",
+      "Loud",
+      "Rehearsed",
+      "Lengthy"
+    ],
+    "answer": "Persuasive",
+    "id": 209
+  },
+  {
+    "sentence": "The region experienced a surge in tourism after the new airport opened.",
+    "word": "surge",
+    "choices": [
+      "Increase",
+      "Crisis",
+      "Pause",
+      "Relief"
+    ],
+    "answer": "Increase",
+    "id": 210
+  },
+  {
+    "sentence": "Her essay lacked cohesion, making it difficult to follow the argument.",
+    "word": "cohesion",
+    "choices": [
+      "Flow",
+      "Grammar",
+      "Style",
+      "Facts"
+    ],
+    "answer": "Flow",
+    "id": 211
+  },
+  {
+    "sentence": "The rebels tried to overthrow the government and seize power.",
+    "word": "overthrow",
+    "choices": [
+      "Remove",
+      "Persuade",
+      "Elect",
+      "Join"
+    ],
+    "answer": "Remove",
+    "id": 212
+  },
+  {
+    "sentence": "The board praised his pragmatic approach to solving the budget issues.",
+    "word": "pragmatic",
+    "choices": [
+      "Practical",
+      "Theoretical",
+      "Creative",
+      "Risky"
+    ],
+    "answer": "Practical",
+    "id": 213
+  },
+  {
+    "sentence": "The instructions were ambiguous and led to multiple interpretations.",
+    "word": "ambiguous",
+    "choices": [
+      "Unclear",
+      "Wrong",
+      "Complete",
+      "Easy"
+    ],
+    "answer": "Unclear",
+    "id": 214
+  },
+  {
+    "sentence": "She wrote an articulate response that addressed every major concern.",
+    "word": "articulate",
+    "choices": [
+      "Well-expressed",
+      "Polite",
+      "Brief",
+      "Formal"
+    ],
+    "answer": "Well-expressed",
+    "id": 215
+  },
+  {
+    "sentence": "The monument commemorates those who fought in the war.",
+    "word": "commemorates",
+    "choices": [
+      "Honors",
+      "Challenges",
+      "Describes",
+      "Repairs"
+    ],
+    "answer": "Honors",
+    "id": 216
+  },
+  {
+    "sentence": "The country is experiencing a political upheaval due to widespread protests.",
+    "word": "upheaval",
+    "choices": [
+      "Disruption",
+      "Celebration",
+      "Solution",
+      "Agreement"
+    ],
+    "answer": "Disruption",
+    "id": 217
+  },
+  {
+    "sentence": "The organization outlined a strategic plan for long-term development.",
+    "word": "outlined",
+    "choices": [
+      "Described",
+      "Dismissed",
+      "Shared",
+      "Criticized"
+    ],
+    "answer": "Described",
+    "id": 218
+  },
+  {
+    "sentence": "The scientist\u2019s findings were pivotal to the advancement of the research.",
+    "word": "pivotal",
+    "choices": [
+      "Critical",
+      "Secondary",
+      "Obvious",
+      "Abstract"
+    ],
+    "answer": "Critical",
+    "id": 219
+  },
+  {
+    "sentence": "The agency collaborated with local authorities to implement the new regulations.",
+    "word": "collaborated",
+    "choices": [
+      "Worked together",
+      "Objected",
+      "Failed",
+      "Voted"
+    ],
+    "answer": "Worked together",
+    "id": 220
+  },
+  {
+    "sentence": "The minister was criticized for his complacent attitude toward the growing crisis.",
+    "word": "complacent",
+    "choices": [
+      "Self-satisfied",
+      "Panicked",
+      "Concerned",
+      "Prepared"
+    ],
+    "answer": "Self-satisfied",
+    "id": 221
+  },
+  {
+    "sentence": "The documentary sheds light on the plight of displaced communities.",
+    "word": "plight",
+    "choices": [
+      "Struggle",
+      "Tradition",
+      "Behavior",
+      "Cause"
+    ],
+    "answer": "Struggle",
+    "id": 222
+  },
+  {
+    "sentence": "The company is looking to streamline its operations to reduce costs.",
+    "word": "streamline",
+    "choices": [
+      "Simplify",
+      "Outsource",
+      "Expand",
+      "Neglect"
+    ],
+    "answer": "Simplify",
+    "id": 223
+  },
+  {
+    "sentence": "The artist was revered for her groundbreaking contributions to modern sculpture.",
+    "word": "revered",
+    "choices": [
+      "Respected",
+      "Followed",
+      "Feared",
+      "Criticized"
+    ],
+    "answer": "Respected",
+    "id": 224
+  },
+  {
+    "sentence": "The building was condemned due to unsafe structural damage.",
+    "word": "condemned",
+    "choices": [
+      "Declared unfit",
+      "Sold",
+      "Expanded",
+      "Protected"
+    ],
+    "answer": "Declared unfit",
+    "id": 225
+  },
+  {
+    "sentence": "The company\u2019s ethics policy is embedded in its core business practices.",
+    "word": "embedded",
+    "choices": [
+      "Integrated",
+      "Copied",
+      "Suggested",
+      "Monitored"
+    ],
+    "answer": "Integrated",
+    "id": 226
+  },
+  {
+    "sentence": "The treatment led to a notable reduction in patient symptoms.",
+    "word": "notable",
+    "choices": [
+      "Significant",
+      "Marginal",
+      "Rapid",
+      "Long-term"
+    ],
+    "answer": "Significant",
+    "id": 227
+  },
+  {
+    "sentence": "The charity distributed aid to mitigate the effects of the disaster.",
+    "word": "mitigate",
+    "choices": [
+      "Lessen",
+      "Increase",
+      "Report",
+      "Compare"
+    ],
+    "answer": "Lessen",
+    "id": 228
+  },
+  {
+    "sentence": "The actor portrayed the character with remarkable depth and sincerity.",
+    "word": "portrayed",
+    "choices": [
+      "Represented",
+      "Followed",
+      "Analyzed",
+      "Observed"
+    ],
+    "answer": "Represented",
+    "id": 229
+  },
+  {
+    "sentence": "There was a subtle shift in tone as the meeting became more tense.",
+    "word": "subtle",
+    "choices": [
+      "Slight",
+      "Abrupt",
+      "Unclear",
+      "Sharp"
+    ],
+    "answer": "Slight",
+    "id": 230
+  },
+  {
+    "sentence": "She has an innate ability to understand people\u2019s emotions.",
+    "word": "innate",
+    "choices": [
+      "Natural",
+      "Acquired",
+      "Temporary",
+      "Fragile"
+    ],
+    "answer": "Natural",
+    "id": 231
+  },
+  {
+    "sentence": "The mayor pledged to foster a culture of transparency and accountability.",
+    "word": "foster",
+    "choices": [
+      "Encourage",
+      "Disregard",
+      "Limit",
+      "Analyze"
+    ],
+    "answer": "Encourage",
+    "id": 232
+  },
+  {
+    "sentence": "The lab is equipped with sophisticated tools for molecular analysis.",
+    "word": "sophisticated",
+    "choices": [
+      "Advanced",
+      "Dull",
+      "Basic",
+      "Outdated"
+    ],
+    "answer": "Advanced",
+    "id": 233
+  },
+  {
+    "sentence": "He was reprimanded for violating the company\u2019s code of conduct.",
+    "word": "reprimanded",
+    "choices": [
+      "Scolded",
+      "Promoted",
+      "Examined",
+      "Replaced"
+    ],
+    "answer": "Scolded",
+    "id": 234
+  },
+  {
+    "sentence": "The country\u2019s legal framework is derived from both national and international sources.",
+    "word": "derived",
+    "choices": [
+      "Taken",
+      "Opposed",
+      "Planned",
+      "Delayed"
+    ],
+    "answer": "Taken",
+    "id": 235
+  },
+  {
+    "sentence": "She made a compelling argument that persuaded even the skeptics.",
+    "word": "compelling",
+    "choices": [
+      "Convincing",
+      "Shocking",
+      "Angry",
+      "Simple"
+    ],
+    "answer": "Convincing",
+    "id": 236
+  },
+  {
+    "sentence": "The report was marred by factual inaccuracies and unclear language.",
+    "word": "marred",
+    "choices": [
+      "Damaged",
+      "Organized",
+      "Extended",
+      "Discussed"
+    ],
+    "answer": "Damaged",
+    "id": 237
+  },
+  {
+    "sentence": "He offered a succinct summary of the presentation.",
+    "word": "succinct",
+    "choices": [
+      "Brief",
+      "Lengthy",
+      "Accurate",
+      "Positive"
+    ],
+    "answer": "Brief",
+    "id": 238
+  },
+  {
+    "sentence": "Their agreement was contingent on receiving proper funding.",
+    "word": "contingent",
+    "choices": [
+      "Dependent",
+      "Independent",
+      "Unnecessary",
+      "Predictable"
+    ],
+    "answer": "Dependent",
+    "id": 239
+  },
+  {
+    "sentence": "The article attempts to reconcile the two opposing viewpoints.",
+    "word": "reconcile",
+    "choices": [
+      "Bring together",
+      "Challenge",
+      "Explain",
+      "Replace"
+    ],
+    "answer": "Bring together",
+    "id": 240
+  },
+  {
+    "sentence": "The brochure was designed to entice travelers with scenic photos and discounts.",
+    "word": "entice",
+    "choices": [
+      "Attract",
+      "Inform",
+      "Confuse",
+      "Guide"
+    ],
+    "answer": "Attract",
+    "id": 241
+  },
+  {
+    "sentence": "They decided to terminate the contract due to repeated violations.",
+    "word": "terminate",
+    "choices": [
+      "End",
+      "Approve",
+      "Limit",
+      "Edit"
+    ],
+    "answer": "End",
+    "id": 242
+  },
+  {
+    "sentence": "The documentary revealed the harsh realities of life in the remote region.",
+    "word": "realities",
+    "choices": [
+      "Truths",
+      "Benefits",
+      "Cultures",
+      "Predictions"
+    ],
+    "answer": "Truths",
+    "id": 243
+  },
+  {
+    "sentence": "The writer drew a stark contrast between the two societies.",
+    "word": "stark",
+    "choices": [
+      "Sharp",
+      "Gradual",
+      "Misleading",
+      "Forced"
+    ],
+    "answer": "Sharp",
+    "id": 244
+  },
+  {
+    "sentence": "The scientist proposed a bold hypothesis that challenged traditional thinking.",
+    "word": "hypothesis",
+    "choices": [
+      "Theory",
+      "Conclusion",
+      "Example",
+      "Method"
+    ],
+    "answer": "Theory",
+    "id": 245
+  },
+  {
+  "id": 246,
+  "sentence": "The plan was dismissed as too ambitious, but she remained adamant. Nothing could persuade her to change course.",
+  "word": "adamant",
+  "question": "Which word is closest in meaning to _adamant_?",
+  "choices": ["Stubborn", "Unclear", "Optimistic", "Worried"],
+  "answer": "Stubborn"
 },
 {
-  "sentence": "The researcher postulated a new theory based on the data collected from the latest experiment.",
-  "word": "postulated",
-  "choices": ["Proposed", "Ignored", "Refuted", "Tested"],
-  "answer": "Proposed"
+  "id": 247,
+  "sentence": "The organization aims to eradicate poverty in the region by providing sustainable resources and education.",
+  "word": "eradicate",
+  "question": "Which word is closest in meaning to _eradicate_?",
+  "choices": ["Eliminate", "Understand", "Reduce", "Observe"],
+  "answer": "Eliminate"
 },
 {
-  "sentence": "Her demeanor remained calm and composed even under intense pressure.",
-  "word": "demeanor",
-  "choices": ["Behavior", "Concern", "Appearance", "Schedule"],
-  "answer": "Behavior"
+  "id": 248,
+  "sentence": "The concept was intriguing, but the lack of practical application made it difficult to implement.",
+  "word": "intriguing",
+  "question": "Which word is closest in meaning to _intriguing_?",
+  "choices": ["Fascinating", "Confusing", "Disappointing", "Obvious"],
+  "answer": "Fascinating"
 },
 {
-  "sentence": "The documentary provided a bleak but accurate portrayal of life in the refugee camps.",
-  "word": "bleak",
-  "choices": ["Gloomy", "Fictional", "Safe", "Colorful"],
-  "answer": "Gloomy"
+  "id": 249,
+  "sentence": "He glanced at the document and offered a cursory response. It was clear he hadn’t examined it in detail.",
+  "word": "cursory",
+  "question": "Which word is closest in meaning to _cursory_?",
+  "choices": ["Superficial", "Helpful", "Angry", "Careful"],
+  "answer": "Superficial"
 },
 {
-  "sentence": "The artist’s work was known for its vibrant colors and unconventional style.",
-  "word": "vibrant",
-  "choices": ["Lively", "Faded", "Dark", "Simple"],
-  "answer": "Lively"
+  "id": 250,
+  "sentence": "The interns were encouraged to take initiative rather than wait for assignments.",
+  "word": "initiative",
+  "question": "Which word is closest in meaning to _initiative_?",
+  "choices": ["Drive", "Approval", "Agreement", "Schedule"],
+  "answer": "Drive"
 },
 {
-  "sentence": "The engineer had to devise a new method to reduce energy loss in the system.",
-  "word": "devise",
-  "choices": ["Invent", "Destroy", "Delay", "Deny"],
-  "answer": "Invent"
-},
-{
-  "sentence": "He always took a pragmatic approach to problem-solving, focusing on what worked rather than theory.",
-  "word": "pragmatic",
-  "choices": ["Practical", "Critical", "Emotional", "Idealistic"],
-  "answer": "Practical"
-},
-{
-  "sentence": "The soldiers endured harsh conditions during the winter campaign.",
-  "word": "endured",
-  "choices": ["Suffered", "Ignored", "Predicted", "Caused"],
-  "answer": "Suffered"
-},
-{
-  "sentence": "Her performance in the debate was admirable, especially considering her limited preparation time.",
-  "word": "admirable",
-  "choices": ["Praiseworthy", "Average", "Insincere", "Predictable"],
-  "answer": "Praiseworthy"
-},
-{
-  "sentence": "The startup lacked the capital necessary to scale its operations globally.",
-  "word": "capital",
-  "choices": ["Money", "License", "Permission", "Office"],
-  "answer": "Money"
-},
-{
-  "sentence": "He was known for being resilient in the face of setbacks, always bouncing back stronger.",
-  "word": "resilient",
-  "choices": ["Tough", "Polite", "Silent", "Humble"],
-  "answer": "Tough"
-},
-{
-  "sentence": "Their decision to relocate was driven by the high cost of living in the city.",
-  "word": "relocate",
-  "choices": ["Move", "Protest", "Celebrate", "Repair"],
-  "answer": "Move"
-},
-{
-  "sentence": "The novel's protagonist was a complex character with a mysterious past.",
-  "word": "protagonist",
-  "choices": ["Main character", "Stranger", "Enemy", "Author"],
-  "answer": "Main character"
-},
-{
-  "sentence": "The instructions were ambiguous, leaving many participants unsure of what to do.",
-  "word": "ambiguous",
-  "choices": ["Unclear", "Helpful", "Lengthy", "Exact"],
+  "id": 251,
+  "sentence": "His response was deliberately vague, as he didn’t want to commit to a clear position.",
+  "word": "vague",
+  "question": "Which word is closest in meaning to _vague_?",
+  "choices": ["Unclear", "Polite", "Harsh", "Honest"],
   "answer": "Unclear"
 },
 {
-  "sentence": "The committee was impressed by her articulate response to a difficult question.",
-  "word": "articulate",
-  "choices": ["Expressive", "Quick", "Repetitive", "Neutral"],
-  "answer": "Expressive"
+  "id": 252,
+  "sentence": "The researcher’s hypothesis was eventually validated by several independent studies.",
+  "word": "validated",
+  "question": "Which word is closest in meaning to _validated_?",
+  "choices": ["Confirmed", "Rewritten", "Avoided", "Criticized"],
+  "answer": "Confirmed"
 },
 {
-  "sentence": "The merchant thrived in the busy marketplace, selling handmade goods to tourists.",
-  "word": "merchant",
-  "choices": ["Seller", "Painter", "Waiter", "Manager"],
-  "answer": "Seller"
+  "id": 253,
+  "sentence": "Despite numerous obstacles, her optimism never faltered. She remained hopeful throughout the entire process.",
+  "word": "faltered",
+  "question": "Which word is closest in meaning to _faltered_?",
+  "choices": ["Weakened", "Continued", "Changed", "Rose"],
+  "answer": "Weakened"
 },
 {
-  "sentence": "Their vacation was marred by a series of unexpected delays and cancellations.",
-  "word": "marred",
-  "choices": ["Ruined", "Shortened", "Improved", "Extended"],
-  "answer": "Ruined"
+  "id": 254,
+  "sentence": "The results were startling. No one had anticipated such a drastic improvement in performance.",
+  "word": "startling",
+  "question": "Which word is closest in meaning to _startling_?",
+  "choices": ["Surprising", "Negative", "Gradual", "Inevitable"],
+  "answer": "Surprising"
 },
 {
-  "sentence": "The teacher emphasized the importance of integrity in academic work.",
-  "word": "integrity",
-  "choices": ["Honesty", "Ambition", "Knowledge", "Effort"],
-  "answer": "Honesty"
+  "id": 255,
+  "sentence": "The team's success can be attributed to their collaborative spirit and mutual respect.",
+  "word": "collaborative",
+  "question": "Which word is closest in meaning to _collaborative_?",
+  "choices": ["Cooperative", "Passive", "Isolated", "Competitive"],
+  "answer": "Cooperative"
 },
 {
-  "sentence": "They sought refuge in a nearby village after the storm destroyed their home.",
-  "word": "refuge",
-  "choices": ["Shelter", "Gift", "Signal", "Money"],
-  "answer": "Shelter"
+  "id": 256,
+  "sentence": "The witness was reluctant to testify, fearing retaliation from those involved.",
+  "word": "reluctant",
+  "question": "Which word is closest in meaning to _reluctant_?",
+  "choices": ["Unwilling", "Prepared", "Careful", "Proud"],
+  "answer": "Unwilling"
 },
 {
-  "sentence": "The architect was lauded for her innovative use of space and natural light.",
-  "word": "lauded",
-  "choices": ["Praised", "Tested", "Mocked", "Replaced"],
-  "answer": "Praised"
+  "id": 257,
+  "sentence": "The painting was thought to be authentic, but further analysis revealed it to be a forgery.",
+  "word": "authentic",
+  "question": "Which word is closest in meaning to _authentic_?",
+  "choices": ["Genuine", "Old", "Expensive", "Complex"],
+  "answer": "Genuine"
+},
+{
+  "id": 258,
+  "sentence": "They were inundated with applications after the job posting went live.",
+  "word": "inundated",
+  "question": "Which word is closest in meaning to _inundated_?",
+  "choices": ["Overwhelmed", "Declined", "Assisted", "Surprised"],
+  "answer": "Overwhelmed"
+},
+{
+  "id": 259,
+  "sentence": "The charity works to alleviate hunger in the region. Their food distribution program feeds hundreds daily.",
+  "word": "alleviate",
+  "question": "Which word is closest in meaning to _alleviate_?",
+  "choices": ["Reduce", "Share", "Hide", "Increase"],
+  "answer": "Reduce"
+},
+{
+  "id": 260,
+  "sentence": "His explanation was coherent and easy to follow. The audience appreciated his clarity.",
+  "word": "coherent",
+  "question": "Which word is closest in meaning to _coherent_?",
+  "choices": ["Logical", "Vague", "Strange", "Fast"],
+  "answer": "Logical"
+},
+{
+  "id": 261,
+  "sentence": "The new manager took a pragmatic approach to problem-solving, focusing on what would actually work.",
+  "word": "pragmatic",
+  "question": "Which word is closest in meaning to _pragmatic_?",
+  "choices": ["Practical", "Theoretical", "Conventional", "Idealistic"],
+  "answer": "Practical"
+},
+{
+  "id": 262,
+  "sentence": "She gave a heartfelt apology. Her remorse was evident in both her tone and her expression.",
+  "word": "remorse",
+  "question": "Which word is closest in meaning to _remorse_?",
+  "choices": ["Regret", "Relief", "Anger", "Disappointment"],
+  "answer": "Regret"
+},
+{
+  "id": 263,
+  "sentence": "The journalist wrote a scathing review of the film, criticizing nearly every element.",
+  "word": "scathing",
+  "question": "Which word is closest in meaning to _scathing_?",
+  "choices": ["Harsh", "Unclear", "Detailed", "Boring"],
+  "answer": "Harsh"
+},
+{
+  "id": 264,
+  "sentence": "The hikers had to improvise a shelter using branches and leaves after getting lost in the woods.",
+  "word": "improvise",
+  "question": "Which word is closest in meaning to _improvise_?",
+  "choices": ["Create spontaneously", "Travel quickly", "Wait patiently", "Explain clearly"],
+  "answer": "Create spontaneously"
+},
+{
+  "id": 265,
+  "sentence": "His answer was concise and to the point. Everyone appreciated the brevity.",
+  "word": "concise",
+  "question": "Which word is closest in meaning to _concise_?",
+  "choices": ["Brief", "Polite", "Loud", "Formal"],
+  "answer": "Brief"
+},
+{
+  "id": 266,
+  "sentence": "The idea was initially dismissed as absurd. However, it later proved to be revolutionary.",
+  "word": "absurd",
+  "question": "Which word is closest in meaning to _absurd_?",
+  "choices": ["Ridiculous", "Confusing", "False", "Basic"],
+  "answer": "Ridiculous"
+},
+{
+  "id": 267,
+  "sentence": "The children were mesmerized by the magician’s tricks. They couldn’t look away.",
+  "word": "mesmerized",
+  "question": "Which word is closest in meaning to _mesmerized_?",
+  "choices": ["Fascinated", "Disturbed", "Encouraged", "Afraid"],
+  "answer": "Fascinated"
+},
+{
+  "id": 268,
+  "sentence": "The policy aims to promote equity in the workplace. It ensures that opportunities are fairly distributed.",
+  "word": "equity",
+  "question": "Which word is closest in meaning to _equity_?",
+  "choices": ["Fairness", "Structure", "Loyalty", "Security"],
+  "answer": "Fairness"
+},
+{
+  "id": 269,
+  "sentence": "He expressed profound gratitude for their support. It was clear that their help meant a great deal to him.",
+  "word": "gratitude",
+  "question": "Which word is closest in meaning to _gratitude_?",
+  "choices": ["Thankfulness", "Celebration", "Favor", "Surprise"],
+  "answer": "Thankfulness"
+},
+{
+  "id": 270,
+  "sentence": "The defendant appeared stoic during the trial. He showed no visible emotion, regardless of the testimony.",
+  "word": "stoic",
+  "question": "Which word is closest in meaning to _stoic_?",
+  "choices": ["Unemotional", "Curious", "Irritated", "Persuasive"],
+  "answer": "Unemotional"
+},
+{
+  "id": 271,
+  "sentence": "The professor’s explanation was so convoluted that most students struggled to follow it.",
+  "word": "convoluted",
+  "question": "Which word is closest in meaning to _convoluted_?",
+  "choices": ["Complicated", "Repetitive", "Factual", "Calm"],
+  "answer": "Complicated"
+},
+{
+  "id": 272,
+  "sentence": "After the long hike, the serene landscape gave them a moment of peace and reflection.",
+  "word": "serene",
+  "question": "Which word is closest in meaning to _serene_?",
+  "choices": ["Calm", "Faint", "Grand", "Dark"],
+  "answer": "Calm"
+},
+{
+  "id": 273,
+  "sentence": "She was disillusioned after realizing the job wasn’t as exciting as she had imagined.",
+  "word": "disillusioned",
+  "question": "Which word is closest in meaning to _disillusioned_?",
+  "choices": ["Disappointed", "Encouraged", "Curious", "Impressed"],
+  "answer": "Disappointed"
+},
+{
+  "id": 274,
+  "sentence": "The policy’s ambiguous language left room for multiple interpretations.",
+  "word": "ambiguous",
+  "question": "Which word is closest in meaning to _ambiguous_?",
+  "choices": ["Unclear", "Honest", "Specific", "Deceptive"],
+  "answer": "Unclear"
+},
+{
+  "id": 275,
+  "sentence": "Although his tone was respectful, his comments were clearly intended to undermine her authority.",
+  "word": "undermine",
+  "question": "Which word is closest in meaning to _undermine_?",
+  "choices": ["Weaken", "Support", "Avoid", "Echo"],
+  "answer": "Weaken"
+},
+{
+  "id": 276,
+  "sentence": "The director was known for his austere style—minimal dialogue, muted colors, and sparse music.",
+  "word": "austere",
+  "question": "Which word is closest in meaning to _austere_?",
+  "choices": ["Severe", "Lively", "Generous", "Colorful"],
+  "answer": "Severe"
+},
+{
+  "id": 277,
+  "sentence": "The company issued a statement to clarify their position after the misleading article was published.",
+  "word": "clarify",
+  "question": "Which word is closest in meaning to _clarify_?",
+  "choices": ["Explain", "Change", "Accept", "Avoid"],
+  "answer": "Explain"
+},
+{
+  "id": 278,
+  "sentence": "The sudden resignation of the CEO sent shockwaves through the industry.",
+  "word": "resignation",
+  "question": "Which word is closest in meaning to _resignation_?",
+  "choices": ["Departure", "Announcement", "Mistake", "Promotion"],
+  "answer": "Departure"
+},
+{
+  "id": 279,
+  "sentence": "The storm caused extensive damage, leaving several neighborhoods without power.",
+  "word": "extensive",
+  "question": "Which word is closest in meaning to _extensive_?",
+  "choices": ["Widespread", "Rare", "Minor", "Sudden"],
+  "answer": "Widespread"
+},
+{
+  "id": 280,
+  "sentence": "The defendant’s behavior during the trial was erratic, frequently shifting from calm to aggressive.",
+  "word": "erratic",
+  "question": "Which word is closest in meaning to _erratic_?",
+  "choices": ["Unpredictable", "Quiet", "Logical", "Routine"],
+  "answer": "Unpredictable"
+},
+{
+  "id": 281,
+  "sentence": "The teacher tried to foster a sense of curiosity by asking thought-provoking questions.",
+  "word": "foster",
+  "question": "Which word is closest in meaning to _foster_?",
+  "choices": ["Encourage", "Disregard", "Prevent", "Answer"],
+  "answer": "Encourage"
+},
+{
+  "id": 282,
+  "sentence": "Although she was known for being pragmatic, this time she made a decision based on emotion.",
+  "word": "pragmatic",
+  "question": "Which word is closest in meaning to _pragmatic_?",
+  "choices": ["Practical", "Traditional", "Generous", "Informed"],
+  "answer": "Practical"
+},
+{
+  "id": 283,
+  "sentence": "His speech was punctuated by subtle humor that made the audience smile without distracting from the main point.",
+  "word": "subtle",
+  "question": "Which word is closest in meaning to _subtle_?",
+  "choices": ["Delicate", "Obvious", "Unusual", "Silly"],
+  "answer": "Delicate"
+},
+{
+  "id": 284,
+  "sentence": "They implemented new procedures to streamline operations and reduce unnecessary steps.",
+  "word": "streamline",
+  "question": "Which word is closest in meaning to _streamline_?",
+  "choices": ["Simplify", "Control", "Expand", "Delay"],
+  "answer": "Simplify"
+},
+{
+  "id": 285,
+  "sentence": "The explorer documented the indigenous tribe’s customs with deep respect and attention to detail.",
+  "word": "indigenous",
+  "question": "Which word is closest in meaning to _indigenous_?",
+  "choices": ["Native", "Modern", "Distant", "Rare"],
+  "answer": "Native"
+},
+{
+  "id": 286,
+  "sentence": "He maintained a facade of confidence, though he was clearly nervous inside.",
+  "word": "facade",
+  "question": "Which word is closest in meaning to _facade_?",
+  "choices": ["Front", "Plan", "Error", "Sound"],
+  "answer": "Front"
+},
+{
+  "id": 287,
+  "sentence": "The editor’s job was to scrutinize each article before publication.",
+  "word": "scrutinize",
+  "question": "Which word is closest in meaning to _scrutinize_?",
+  "choices": ["Examine", "Delete", "Censor", "Praise"],
+  "answer": "Examine"
+},
+{
+  "id": 288,
+  "sentence": "His remarks were intended to be constructive, but some interpreted them as overly critical.",
+  "word": "constructive",
+  "question": "Which word is closest in meaning to _constructive_?",
+  "choices": ["Helpful", "Unfair", "Repetitive", "Unusual"],
+  "answer": "Helpful"
+},
+{
+  "id": 289,
+  "sentence": "The investment was lucrative, yielding high returns within just a few months.",
+  "word": "lucrative",
+  "question": "Which word is closest in meaning to _lucrative_?",
+  "choices": ["Profitable", "Common", "Uncertain", "Popular"],
+  "answer": "Profitable"
+},
+{
+  "id": 290,
+  "sentence": "The country’s leader vowed to uphold the constitution and protect the rights of all citizens.",
+  "word": "uphold",
+  "question": "Which word is closest in meaning to _uphold_?",
+  "choices": ["Support", "Enforce", "Ignore", "Rewrite"],
+  "answer": "Support"
+},
+{
+  "id": 291,
+  "sentence": "His comments were deemed inappropriate and sparked a wave of backlash online.",
+  "word": "backlash",
+  "question": "Which word is closest in meaning to _backlash_?",
+  "choices": ["Negative reaction", "Reward", "Judgment", "Retreat"],
+  "answer": "Negative reaction"
+},
+{
+  "id": 292,
+  "sentence": "After a brief hiatus, the band announced they would be returning to the stage.",
+  "word": "hiatus",
+  "question": "Which word is closest in meaning to _hiatus_?",
+  "choices": ["Break", "Tour", "Song", "Failure"],
+  "answer": "Break"
+},
+{
+  "id": 293,
+  "sentence": "He was known for his candid remarks and refusal to hide the truth.",
+  "word": "candid",
+  "question": "Which word is closest in meaning to _candid_?",
+  "choices": ["Honest", "Shy", "Formal", "Hesitant"],
+  "answer": "Honest"
+},
+{
+  "id": 294,
+  "sentence": "The new regulations aimed to curb pollution and encourage sustainable practices.",
+  "word": "curb",
+  "question": "Which word is closest in meaning to _curb_?",
+  "choices": ["Limit", "Ignore", "Create", "Expose"],
+  "answer": "Limit"
+},
+{
+  "id": 295,
+  "sentence": "Despite the setbacks, the team was resolute in completing the mission on time.",
+  "word": "resolute",
+  "question": "Which word is closest in meaning to _resolute_?",
+  "choices": ["Determined", "Afraid", "Hopeful", "Confused"],
+  "answer": "Determined"
 }
 ]

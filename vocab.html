@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +31,7 @@
     .disabled {
       pointer-events: none;
     }
-    #next-btn {
+    #next-btn, #reset-btn {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
@@ -46,19 +47,39 @@
   <div id="choices"></div>
 
   <button id="next-btn">Next</button>
+  <button id="reset-btn">Reset Progress</button>
 
   <script>
     let vocabData = [];
 
     async function loadData() {
       const response = await fetch('vocab.json');
-      vocabData = await response.json();
+      const allData = await response.json();
+
+      const answered = JSON.parse(localStorage.getItem('answeredQuestions') || '[]');
+      vocabData = allData.filter(item => !answered.includes(item.id));
+
+      if (vocabData.length === 0) {
+        alert("You've answered all available questions!");
+        document.getElementById('sentence').textContent = "";
+        document.getElementById('target-word').textContent = "";
+        document.getElementById('choices').innerHTML = "";
+        return;
+      }
+
       loadVocabularySet();
+    }
+
+    function markAsAnswered(id) {
+      const answered = JSON.parse(localStorage.getItem('answeredQuestions') || '[]');
+      if (!answered.includes(id)) {
+        answered.push(id);
+        localStorage.setItem('answeredQuestions', JSON.stringify(answered));
+      }
     }
 
     function loadVocabularySet() {
       const set = vocabData[Math.floor(Math.random() * vocabData.length)];
-
       document.getElementById('sentence').textContent = set.sentence;
       document.getElementById('target-word').textContent = set.word;
 
@@ -79,13 +100,16 @@
             const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
             if (correctBtn) correctBtn.classList.add('correct');
           }
+          markAsAnswered(set.id);
         });
         choicesContainer.appendChild(button);
       });
     }
 
-    document.getElementById('next-btn').addEventListener('click', () => {
-      loadVocabularySet();
+    document.getElementById('next-btn').addEventListener('click', loadData);
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      localStorage.removeItem('answeredQuestions');
+      loadData();
     });
 
     loadData();
