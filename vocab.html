@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,6 +78,7 @@
     }
 
     function loadVocabularySet() {
+      if (vocabData.length === 0) return;
       const set = vocabData[Math.floor(Math.random() * vocabData.length)];
       document.getElementById('sentence').textContent = set.sentence;
       document.getElementById('target-word').textContent = set.word;
@@ -101,12 +101,13 @@
             if (correctBtn) correctBtn.classList.add('correct');
           }
           markAsAnswered(set.id);
+          vocabData = vocabData.filter(item => item.id !== set.id);
         });
         choicesContainer.appendChild(button);
       });
     }
 
-    document.getElementById('next-btn').addEventListener('click', loadData);
+    document.getElementById('next-btn').addEventListener('click', loadVocabularySet);
     document.getElementById('reset-btn').addEventListener('click', () => {
       localStorage.removeItem('answeredQuestions');
       loadData();
