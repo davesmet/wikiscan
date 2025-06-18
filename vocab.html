@@ -10,9 +10,14 @@
       max-width: 600px;
       margin: auto;
     }
-    .choice {
-      padding: 10px;
+    .choice-wrapper {
+      display: flex;
+      align-items: center;
       margin: 8px 0;
+    }
+    .choice {
+      flex-grow: 1;
+      padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       cursor: pointer;
@@ -53,8 +58,7 @@
 
   <h2>Vocabulary Set</h2>
   <p id="sentence"></p>
-  <p><strong>Which word is closest in meaning to <span id="target-word"></span></strong></p>
-  <div id="target-dict"></div>
+  <p><strong>Which word is closest in meaning to <span id="target-word"></span><span id="target-dict"></span></strong></p>
   <div id="choices"></div>
 
   <button id="next-btn">Next</button>
@@ -106,38 +110,48 @@
       choicesContainer.innerHTML = '';
 
       set.choices.forEach(choice => {
-        const button = document.createElement('div');
-        button.classList.add('choice');
-        button.textContent = choice;
-        button.addEventListener('click', () => {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('choice-wrapper');
+
+        const dictBtn = document.createElement('button');
+        dictBtn.className = 'dict-button';
+        dictBtn.textContent = '📖';
+        dictBtn.style.display = 'none';
+        dictBtn.onclick = () => showDefinition(choice);
+
+        const choiceDiv = document.createElement('div');
+        choiceDiv.classList.add('choice');
+        choiceDiv.textContent = choice;
+
+        choiceDiv.addEventListener('click', () => {
           const allChoices = document.querySelectorAll('.choice');
           allChoices.forEach(c => c.classList.add('disabled'));
           if (choice === set.answer) {
-            button.classList.add('correct');
+            choiceDiv.classList.add('correct');
             showDictButtons(set);
           } else {
-            button.classList.add('incorrect');
+            choiceDiv.classList.add('incorrect');
             const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
             if (correctBtn) correctBtn.classList.add('correct');
           }
           markAsAnswered(set.id);
           vocabData = vocabData.filter(item => item.id !== set.id);
         });
-        choicesContainer.appendChild(button);
+
+        wrapper.appendChild(dictBtn);
+        wrapper.appendChild(choiceDiv);
+        choicesContainer.appendChild(wrapper);
       });
     }
 
     function showDictButtons(set) {
       const targetDict = document.getElementById('target-dict');
-      targetDict.innerHTML = `<button class='dict-button' onclick="showDefinition('${set.word}')">📖</button>`;
-      const allChoices = document.querySelectorAll('.choice');
-      allChoices.forEach(choiceDiv => {
-        const word = choiceDiv.textContent;
-        const dictBtn = document.createElement('button');
-        dictBtn.className = 'dict-button';
-        dictBtn.textContent = '📖';
-        dictBtn.onclick = () => showDefinition(word);
-        choiceDiv.insertAdjacentElement('afterend', dictBtn);
+      targetDict.innerHTML = ` <button class='dict-button' onclick="showDefinition('${set.word}')">📖</button>`;
+
+      const wrappers = document.querySelectorAll('.choice-wrapper');
+      wrappers.forEach(w => {
+        const btn = w.querySelector('.dict-button');
+        if (btn) btn.style.display = 'inline-block';
       });
     }
 
