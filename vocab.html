@@ -81,7 +81,7 @@
       const answered = JSON.parse(localStorage.getItem('answeredQuestions') || '[]');
       vocabData = allData.filter(item => !answered.includes(item.id));
 
-      document.getElementById('progress-count').textContent = `Questions answered: ${answered.length}`;
+      document.getElementById('progress-count').textContent = `Questions answered: ${answered.length} / ${allData.length}`;
 
       if (vocabData.length === 0) {
         alert("You've answered all available questions!");
@@ -100,7 +100,7 @@
       if (!answered.includes(id)) {
         answered.push(id);
         localStorage.setItem('answeredQuestions', JSON.stringify(answered));
-        document.getElementById('progress-count').textContent = `Questions answered: ${answered.length}`;
+        document.getElementById('progress-count').textContent = `Questions answered: ${answered.length} / ${JSON.parse(localStorage.getItem('totalQuestions')) || '?'};`
       }
     }
 
@@ -179,6 +179,10 @@
     document.getElementById('next-btn').addEventListener('click', loadVocabularySet);
 
     loadData();
+
+    fetch('vocab.json')
+      .then(res => res.json())
+      .then(data => localStorage.setItem('totalQuestions', data.length));
   </script>
 </body>
 </html>
