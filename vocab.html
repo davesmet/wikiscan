@@ -34,7 +34,7 @@
     .disabled {
       pointer-events: none;
     }
-    #next-btn, #reset-btn {
+    #next-btn {
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
@@ -52,6 +52,10 @@
       margin-top: 20px;
       font-style: italic;
     }
+    #progress-count {
+      margin-top: 10px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -62,13 +66,13 @@
   <div id="choices"></div>
 
   <button id="next-btn">Next</button>
-  <button id="reset-btn">Reset Progress</button>
-
+  <p id="progress-count"></p>
   <p id="definition"></p>
 
   <script>
     let vocabData = [];
     let currentSet = null;
+    let correctSelected = false;
 
     async function loadData() {
       const response = await fetch('vocab.json');
@@ -76,6 +80,8 @@
 
       const answered = JSON.parse(localStorage.getItem('answeredQuestions') || '[]');
       vocabData = allData.filter(item => !answered.includes(item.id));
+
+      document.getElementById('progress-count').textContent = `Questions answered: ${answered.length}`;
 
       if (vocabData.length === 0) {
         alert("You've answered all available questions!");
@@ -94,6 +100,7 @@
       if (!answered.includes(id)) {
         answered.push(id);
         localStorage.setItem('answeredQuestions', JSON.stringify(answered));
+        document.getElementById('progress-count').textContent = `Questions answered: ${answered.length}`;
       }
     }
 
@@ -101,6 +108,7 @@
       if (vocabData.length === 0) return;
       const set = vocabData[Math.floor(Math.random() * vocabData.length)];
       currentSet = set;
+      correctSelected = false;
       document.getElementById('sentence').textContent = set.sentence;
       document.getElementById('target-word').textContent = set.word;
       document.getElementById('target-dict').innerHTML = "";
@@ -124,18 +132,17 @@
         choiceDiv.textContent = choice;
 
         choiceDiv.addEventListener('click', () => {
-          const allChoices = document.querySelectorAll('.choice');
-          allChoices.forEach(c => c.classList.add('disabled'));
           if (choice === set.answer) {
             choiceDiv.classList.add('correct');
+            document.querySelectorAll('.choice').forEach(c => c.classList.add('disabled'));
             showDictButtons(set);
+            markAsAnswered(set.id);
+            vocabData = vocabData.filter(item => item.id !== set.id);
+            correctSelected = true;
           } else {
             choiceDiv.classList.add('incorrect');
-            const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
-            if (correctBtn) correctBtn.classList.add('correct');
+            choiceDiv.classList.add('disabled');
           }
-          markAsAnswered(set.id);
-          vocabData = vocabData.filter(item => item.id !== set.id);
         });
 
         wrapper.appendChild(dictBtn);
@@ -170,10 +177,6 @@
     }
 
     document.getElementById('next-btn').addEventListener('click', loadVocabularySet);
-    document.getElementById('reset-btn').addEventListener('click', () => {
-      localStorage.removeItem('answeredQuestions');
-      loadData();
-    });
 
     loadData();
   </script>
