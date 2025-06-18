@@ -11,9 +11,6 @@
       margin: auto;
     }
     .choice {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;
@@ -40,9 +37,11 @@
     }
     .dict-button {
       margin-left: 10px;
-      padding: 5px 10px;
-      font-size: 12px;
+      padding: 2px 8px;
+      font-size: 14px;
       cursor: pointer;
+      background: none;
+      border: none;
     }
     #definition {
       margin-top: 20px;
@@ -54,7 +53,8 @@
 
   <h2>Vocabulary Set</h2>
   <p id="sentence"></p>
-  <p><strong>Which word is closest in meaning to <span id="target-word"></span> <button class="dict-button" onclick="showDefinitionFromTarget()">Dictionary</button>?</strong></p>
+  <p><strong>Which word is closest in meaning to <span id="target-word"></span></strong></p>
+  <div id="target-dict"></div>
   <div id="choices"></div>
 
   <button id="next-btn">Next</button>
@@ -78,6 +78,7 @@
         document.getElementById('sentence').textContent = "";
         document.getElementById('target-word').textContent = "";
         document.getElementById('choices').innerHTML = "";
+        document.getElementById('target-dict').innerHTML = "";
         return;
       }
 
@@ -98,6 +99,7 @@
       currentSet = set;
       document.getElementById('sentence').textContent = set.sentence;
       document.getElementById('target-word').textContent = set.word;
+      document.getElementById('target-dict').innerHTML = "";
       document.getElementById('definition').textContent = '';
 
       const choicesContainer = document.getElementById('choices');
@@ -106,24 +108,36 @@
       set.choices.forEach(choice => {
         const button = document.createElement('div');
         button.classList.add('choice');
-        button.innerHTML = `
-          <span>${choice}</span>
-          <button class="dict-button" onclick="showDefinition('${choice}')">Dictionary</button>
-        `;
+        button.textContent = choice;
         button.addEventListener('click', () => {
           const allChoices = document.querySelectorAll('.choice');
           allChoices.forEach(c => c.classList.add('disabled'));
           if (choice === set.answer) {
             button.classList.add('correct');
+            showDictButtons(set);
           } else {
             button.classList.add('incorrect');
-            const correctBtn = Array.from(allChoices).find(c => c.textContent.includes(set.answer));
+            const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
             if (correctBtn) correctBtn.classList.add('correct');
           }
           markAsAnswered(set.id);
           vocabData = vocabData.filter(item => item.id !== set.id);
         });
         choicesContainer.appendChild(button);
+      });
+    }
+
+    function showDictButtons(set) {
+      const targetDict = document.getElementById('target-dict');
+      targetDict.innerHTML = `<button class='dict-button' onclick="showDefinition('${set.word}')">📖</button>`;
+      const allChoices = document.querySelectorAll('.choice');
+      allChoices.forEach(choiceDiv => {
+        const word = choiceDiv.textContent;
+        const dictBtn = document.createElement('button');
+        dictBtn.className = 'dict-button';
+        dictBtn.textContent = '📖';
+        dictBtn.onclick = () => showDefinition(word);
+        choiceDiv.insertAdjacentElement('afterend', dictBtn);
       });
     }
 
@@ -139,10 +153,6 @@
         .catch(() => {
           definitionBox.textContent = 'Definition not available.';
         });
-    }
-
-    function showDefinitionFromTarget() {
-      if (currentSet) showDefinition(currentSet.word);
     }
 
     document.getElementById('next-btn').addEventListener('click', loadVocabularySet);
