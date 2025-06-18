@@ -11,7 +11,9 @@
       margin: auto;
     }
     .choice {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 10px;
       margin: 8px 0;
       border: 1px solid #ccc;
@@ -36,20 +38,33 @@
       font-size: 16px;
       cursor: pointer;
     }
+    .dict-button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    #definition {
+      margin-top: 20px;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
 
   <h2>Vocabulary Set</h2>
   <p id="sentence"></p>
-  <p><strong>Which word is closest in meaning to <span id="target-word"></span>?</strong></p>
+  <p><strong>Which word is closest in meaning to <span id="target-word"></span> <button class="dict-button" onclick="showDefinitionFromTarget()">Dictionary</button>?</strong></p>
   <div id="choices"></div>
 
   <button id="next-btn">Next</button>
   <button id="reset-btn">Reset Progress</button>
 
+  <p id="definition"></p>
+
   <script>
     let vocabData = [];
+    let currentSet = null;
 
     async function loadData() {
       const response = await fetch('vocab.json');
@@ -80,16 +95,21 @@
     function loadVocabularySet() {
       if (vocabData.length === 0) return;
       const set = vocabData[Math.floor(Math.random() * vocabData.length)];
+      currentSet = set;
       document.getElementById('sentence').textContent = set.sentence;
       document.getElementById('target-word').textContent = set.word;
+      document.getElementById('definition').textContent = '';
 
       const choicesContainer = document.getElementById('choices');
       choicesContainer.innerHTML = '';
 
       set.choices.forEach(choice => {
         const button = document.createElement('div');
-        button.textContent = choice;
         button.classList.add('choice');
+        button.innerHTML = `
+          <span>${choice}</span>
+          <button class="dict-button" onclick="showDefinition('${choice}')">Dictionary</button>
+        `;
         button.addEventListener('click', () => {
           const allChoices = document.querySelectorAll('.choice');
           allChoices.forEach(c => c.classList.add('disabled'));
@@ -97,7 +117,7 @@
             button.classList.add('correct');
           } else {
             button.classList.add('incorrect');
-            const correctBtn = Array.from(allChoices).find(c => c.textContent === set.answer);
+            const correctBtn = Array.from(allChoices).find(c => c.textContent.includes(set.answer));
             if (correctBtn) correctBtn.classList.add('correct');
           }
           markAsAnswered(set.id);
@@ -105,6 +125,24 @@
         });
         choicesContainer.appendChild(button);
       });
+    }
+
+    function showDefinition(word) {
+      const definitionBox = document.getElementById('definition');
+      definitionBox.textContent = `Looking up definition for "${word}"...`;
+      fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then(res => res.json())
+        .then(data => {
+          const def = data[0]?.meanings[0]?.definitions[0]?.definition || 'No definition found.';
+          definitionBox.textContent = `${word}: ${def}`;
+        })
+        .catch(() => {
+          definitionBox.textContent = 'Definition not available.';
+        });
+    }
+
+    function showDefinitionFromTarget() {
+      if (currentSet) showDefinition(currentSet.word);
     }
 
     document.getElementById('next-btn').addEventListener('click', loadVocabularySet);
