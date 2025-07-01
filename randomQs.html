@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speaking Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f0f4f8;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    #timer-label {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    #timer {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    #timer.reading {
+      color: orange;
+    }
+    #timer.speaking {
+      color: green;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px 10px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question">Loading...</div>
+  <div id="timer-label"></div>
+  <div id="timer" class=""></div>
+  <button onclick="startCycle()">New Question</button>
+  <button onclick="togglePause()" id="pause-btn">Pause</button>
+
+  <script>
+    const questions = [
+           "Do you prefer working alone or in a group?",
+      "Describe a time when you faced a challenge and how you dealt with it.",
+      "Would you rather live in a big city or a small town?",
+      "What is your favorite season of the year?",
+      "Talk about a book or movie that had a strong impact on you.",
+      "If you could travel anywhere in the world, where would you go?",
+      "Do you prefer working alone or in a group?",
+"Describe a time when you faced a challenge and how you dealt with it.",
+"Would you rather live in a big city or a small town?",
+"What is your favorite season of the year?",
+"Talk about a book or movie that had a strong impact on you.",
+"If you could travel anywhere in the world, where would you go?",
+"Would you rather have the ability to fly or to be invisible?",
+"What is something you've learned recently that surprised you?",
+"Talk about a place that feels like home to you.",
+"Do you prefer planning everything in advance or being spontaneous?",
+"What’s your favorite way to spend a rainy day?",
+"If you could instantly master any skill or subject, what would it be?",
+"Describe a situation where you helped someone unexpectedly.",
+"Would you rather live without music or without movies?",
+"What’s a small habit or routine that brings you joy?",
+"If animals could talk, which one would you like to talk to?",
+"What’s your go-to meal when you don’t feel like cooking?",
+"If your job didn’t exist, what would you do instead?",
+"What’s a hobby or interest you’ve always wanted to try?",
+"Would you rather time travel to the past or to the future?",
+"Do you prefer mornings or evenings?",
+"Describe a time when you learned something from a mistake.",
+"Would you rather always have to sing instead of speak or dance everywhere you go?",
+"What is your favorite type of weather?",
+"Talk about a person you admire.",
+"If you could have any animal as a pet, what would you choose?",
+"Would you rather never use the internet again or never watch TV again?",
+"What is something you used to dislike but now enjoy?",
+"Talk about a memorable childhood experience.",
+"Do you prefer reading fiction or nonfiction?",
+"What’s your favorite thing to do on a weekend?",
+"If you could switch lives with someone for one day, who would it be?",
+"Describe a place you’ve visited that you’d like to return to.",
+"Would you rather eat only sweet food or only salty food?",
+"What’s an object you always keep with you?",
+"If you had a personal robot, what would you want it to do?",
+"Do you prefer watching movies at home or at the theater?",
+"What’s a tradition you enjoy?",
+"Would you rather explore space or explore the deep ocean?",
+"Talk about something that made you laugh recently.",
+"Do you prefer texting or talking on the phone?",
+"Describe a time when you had to make a difficult decision.",
+"Would you rather be really good at math or really good at art?",
+"What is your favorite holiday of the year?",
+"Talk about a skill you’re proud of.",
+"If you could live in any time period, which one would you choose?",
+"Would you rather always be too hot or always be too cold?",
+"What is something you enjoy doing that other people find boring?",
+"Talk about a time when you felt really proud.",
+"Do you prefer spending time indoors or outdoors?",
+"What’s your favorite kind of music?",
+"If you could swap jobs with anyone you know, who would it be?",
+"Describe a food you enjoy that others might not.",
+"Would you rather have a job that pays well or one you love doing?",
+"What’s an item you’ve owned for a long time and still use?",
+"If you had to wear one color every day, what would it be?",
+"Do you prefer visiting new places or returning to familiar ones?",
+"What’s a small goal you’ve recently accomplished?",
+"Would you rather be famous for your talent or for your kindness?",
+"Talk about something you’ve built or created.",
+"Do you prefer working in silence or with background noise?",
+"Describe a time when you had to learn something quickly.",
+"Would you rather go camping in the forest or stay at a beach resort?",
+"What is your favorite thing to do in your free time?",
+"Talk about a project you enjoyed working on.",
+"If you could eat only one meal for a week, what would it be?",
+"Would you rather never be late or never have to wait?",
+"What is something you’ve always wanted to build or make?",
+"Talk about a class or subject you enjoyed in school.",
+"Do you prefer keeping things organized or going with the flow?",
+"What’s your favorite way to relax after a long day?",
+"If you could be famous for one thing, what would it be?",
+"Describe a trip you would like to take.",
+"Would you rather live on a boat or in a cabin in the woods?",
+"What’s an app or tool you use every day?",
+"If you had to pick a new name for yourself, what would you choose?",
+"Do you prefer writing by hand or typing?",
+"What’s your favorite thing to do with friends?",
+"Would you rather have unlimited books or unlimited snacks?",
+"Talk about a time you surprised yourself.",
+"Do you prefer early mornings or late nights?",
+"What’s something you collect or used to collect?",
+"If you could learn a musical instrument instantly, which one would it be?",
+"Describe a time when you taught someone something.",
+"Would you rather never clean again or never cook again?",
+"What’s something that always makes you smile?",
+"If you could be an expert in any hobby, what would it be?",
+"Do you prefer long conversations or quick check-ins?",
+"What’s a place you’d like to explore close to where you live?",
+"Would you rather work four long days or five short ones?",
+"Talk about a time when you felt completely at peace.",
+"What’s your favorite smell?",
+"If you had your own restaurant, what kind of food would you serve?",
+"Do you prefer surprises or knowing what to expect?",
+"What’s a movie or show you’ve watched more than once?",
+"If you could live in a fictional world, which one would it be?",
+"Would you rather have a big celebration or a quiet gathering for your birthday?",
+"What’s something you’ve done that you didn’t expect to enjoy?",
+"Do you prefer listening or talking?",
+"What’s a job you think would be interesting to try?",
+"Do you prefer having a set routine or changing things up often?",
+"Describe a time when you solved a problem creatively.",
+"Would you rather visit the mountains or the desert?",
+"What is your favorite type of snack?",
+"Talk about something you enjoy doing by yourself.",
+"If you could have any superpower for one day, what would it be?",
+"Would you rather be great at sports or great at public speaking?",
+"What is something small that makes your day better?",
+"Talk about a moment that made you feel brave.",
+"Do you prefer traveling by car, plane, or train?",
+"What’s your favorite thing to wear when you want to feel comfortable?",
+"If you could redesign your home, what’s one thing you’d change?",
+"Would you rather always know what time it is or never need to know?",
+"What’s a sound that you really enjoy?",
+"If you could create a holiday, what would people celebrate?",
+"Do you prefer working with your hands or with your mind?",
+"What’s something you’ve done that required patience?",
+"If you could grow anything in your backyard, what would it be?",
+"Would you rather be able to remember everything or forget what you want?",
+"Talk about a tradition that’s important to you.",
+"Do you prefer sweet breakfasts or savory breakfasts?",
+"What’s something you’ve improved at over time?",
+"If you could design a new gadget, what would it do?",
+"Would you rather always have perfect weather or perfect timing?",
+"What’s something that helps you stay focused?",
+"Do you prefer being in a crowd or being alone?",
+"What’s a skill you wish more people had?",
+"If you could have dinner with any fictional character, who would it be?",
+"Would you rather take a long walk or a short bike ride?",
+"What’s a goal you’re working on right now?",
+"Talk about something you’ve fixed or repaired.",
+"If you had a store, what would you sell?",
+"Do you prefer being the leader or the helper?",
+"What’s a game you enjoy playing?",
+"If you could see any place from above, what would you look at?",
+"Would you rather be able to pause time or rewind time?",
+"What’s something that used to scare you but doesn’t anymore?",
+"Do you prefer doing things slowly and carefully or quickly and efficiently?",
+"What’s a piece of advice that stuck with you?",
+"If you could make a new rule that everyone had to follow, what would it be?",
+"Do you prefer drinking coffee or tea?",
+"Describe a time when you had to work with someone very different from you.",
+"Would you rather go to the zoo or the aquarium?",
+"What is your favorite dessert?",
+"Talk about a time you made someone’s day better.",
+"If you could have a room full of anything, what would it be?",
+"Would you rather be able to speak all languages or talk to animals?",
+"What is something you always carry with you?",
+"Talk about something you’ve memorized.",
+"Do you prefer long books or short stories?",
+"What’s your favorite kind of transportation?",
+"If you could have a secret talent, what would it be?",
+"Would you rather live in a treehouse or a tiny house?",
+"What’s a word you really like the sound of?",
+"If you could make one chore disappear forever, which one would it be?",
+"Do you prefer taking notes on paper or digitally?",
+"What’s a sound you find relaxing?",
+"If you could rename one thing in the world, what would you rename?",
+"Would you rather always be five minutes early or always be exactly on time?",
+"Talk about a time when you felt very lucky.",
+"Do you prefer big celebrations or quiet moments?",
+"What’s a toy or game you loved as a child?",
+"If you could change the color of the sky, what would you change it to?",
+"Would you rather be a fast runner or a great swimmer?",
+"What’s a smell that reminds you of home?",
+"Do you prefer board games or video games?",
+"What’s a job you think looks fun?",
+"If you could instantly learn a new language, which one would you choose?",
+"Would you rather be really tall or really strong?",
+"What’s something you wish you could do every day?",
+"Talk about a time when you got really good at something through practice.",
+"If you had your own radio show, what would it be about?",
+"Do you prefer watching the sunrise or the sunset?",
+"What’s a memory that always makes you laugh?",
+"If you could invent a new kind of food, what would it be?",
+"Would you rather have your dream house or your dream job?",
+"What’s something you’ve lost and wish you could get back?",
+"Do you prefer winter clothes or summer clothes?",
+"What’s a subject you think should be taught in every school?",
+"If you could add one thing to your daily routine, what would it be?",
+"Do you prefer cooking or ordering takeout?",
+"Describe a time when you tried something new.",
+"Would you rather always take cold showers or never use a phone again?",
+"What is your favorite kind of weather activity?",
+"Talk about a place you would recommend to a friend.",
+"If you could decorate your room any way you wanted, what would it look like?",
+"Would you rather have a photographic memory or perfect musical pitch?",
+"What is something that always helps you focus?",
+"Talk about a goal you set and reached.",
+"Do you prefer loud environments or quiet ones?",
+"What’s your favorite type of sandwich?",
+"If you could plant one tree anywhere in the world, where would it be?",
+"Would you rather visit every country once or visit your favorite place every year?",
+"What’s a kind gesture someone did for you?",
+"If you could trade places with a character from a movie, who would it be?",
+"Do you prefer reading in bed or reading outside?",
+"What’s your favorite type of ice cream?",
+"If you could add one feature to your home, what would it be?",
+"Would you rather have a tiny pet elephant or a giant pet hamster?",
+"Talk about a time you had to wait for something important.",
+"Do you prefer to-do lists or mental notes?",
+"What’s something you always keep in your bag or backpack?",
+"If you could turn any hobby into a career, what would it be?",
+"Would you rather never be tired or never be hungry?",
+"What’s your favorite sound in nature?",
+"Do you prefer working in the morning or at night?",
+"What’s something you enjoy that doesn’t cost any money?",
+"If you could change your voice for a day, what would it sound like?",
+"Would you rather have unlimited free travel or unlimited free food?",
+"What’s a compliment you’ve never forgotten?",
+"Talk about something you used to struggle with but don’t anymore.",
+"If you had a theme song, what would it be?",
+"Do you prefer watching a movie or listening to a podcast?",
+"What’s your favorite kind of hat or accessory?",
+"If you could shrink something and keep it in your pocket, what would it be?",
+"Would you rather be able to draw really well or sing really well?",
+"What’s a memory that feels like a dream?",
+"Do you prefer making plans or going with the flow?",
+"What’s something you’re looking forward to?",
+"If you could give everyone in the world one gift, what would it be?",
+"Do you prefer staying up late or waking up early?",
+"Describe a time when you had to make a quick decision.",
+"Would you rather live on a spaceship or in an underwater city?",
+"What is your favorite type of fruit?",
+"Talk about a time you got really good at something through repetition.",
+"If you could instantly redecorate your home, what would you change first?",
+"Would you rather explore a cave or climb a mountain?",
+"What is something you do that helps you feel calm?",
+"Talk about an item that means a lot to you.",
+"Do you prefer working on one thing at a time or multitasking?",
+"What’s your favorite way to spend a day off?",
+"If you could be any fictional creature, what would you be?",
+"Would you rather always know the weather or always know the time?",
+"What’s something you enjoy learning about?",
+"If you could live in any type of building, what would it be?",
+"Do you prefer pets that are active or calm?",
+"What’s a color you really like wearing?",
+"If you could visit any museum in the world, which one would you choose?",
+"Would you rather never lose anything again or never break anything again?",
+"Talk about a time when someone surprised you in a good way.",
+"Do you prefer ice cream in a cone or in a bowl?",
+"What’s a piece of clothing you’ve owned for a long time?",
+"If you could create your own holiday, what would people do on it?",
+"Would you rather go skydiving or scuba diving?",
+"What’s a food you enjoy that others might find strange?",
+"Do you prefer books with happy endings or sad endings?",
+"What’s a sound that reminds you of a specific place?",
+"If you could live anywhere for one year, where would you go?",
+"Would you rather always be able to find what you’re looking for or never lose anything?",
+"What’s a time when you felt really appreciated?",
+"Do you prefer being asked questions or asking them?",
+"What’s something you’ve done recently that felt productive?",
+"If you could have a wall covered in anything, what would it be?",
+"Would you rather be able to do math instantly or write perfect stories?",
+"What’s a flavor you wish more foods had?",
+"Do you prefer short conversations throughout the day or one long talk?",
+"What’s a scene from a movie or book that stuck with you?",
+"If you could carry one object from your childhood forever, what would it be?",
+"What’s something you always keep on your desk or table?",
+"If you could make a rule for the internet, what would it be?",
+"Do you prefer silence or background music while working?",
+"Describe a time when you learned something from a friend.",
+"Would you rather live without mirrors or without clocks?",
+"What is your favorite type of beverage?",
+"Talk about a gift you’ve received that meant a lot to you.",
+"If you could have any animal ability, what would it be?",
+"Would you rather explore a rainforest or a glacier?",
+"What is something you enjoy doing on your own?",
+"Talk about a time you completed something challenging.",
+"Do you prefer digital calendars or paper planners?",
+"What’s your favorite breakfast food?",
+"If you could bring one historical figure into the modern world, who would it be?",
+"Would you rather be known for your creativity or your logic?",
+"What’s a texture you enjoy touching?",
+"If you had a magical backpack, what would it always contain?",
+"Do you prefer hand-written notes or typed ones?",
+"What’s a piece of advice you like to give to others?",
+"If you could see a live performance of any kind, what would you choose?",
+"Would you rather spend a day on a boat or in a train?",
+"Talk about a time you had to stay calm in a stressful situation.",
+"Do you prefer cold drinks or hot drinks?",
+"What’s something you’ve made that you were proud of?",
+"If you could be part of any club or group, what would it be about?",
+"Would you rather have a home theater or a personal library?",
+"What’s a scent that reminds you of someone you know?",
+"Do you prefer watching sports or playing them?",
+"What’s a sound you associate with your favorite place?",
+"If you could only wear one outfit style forever, what would it be?",
+"Would you rather live in a place with no seasons or one with all four?",
+"What’s a hobby that helps you relax?",
+"Do you prefer working with a team or working independently?",
+"What’s something you always notice when visiting a new place?",
+"If you had to pick a new hobby, what would you try first?",
+"Would you rather be able to read super fast or write super fast?",
+"What’s something you wish you had learned earlier in life?",
+"Do you prefer parks, beaches, or forests?",
+"What’s a word you think is fun to say?",
+"If you had your own slogan, what would it be?",
+"What’s a daily routine you enjoy?",
+"If you could turn one of your dreams into reality, which one would you pick?"
+    ];
+
+    let readTime = 6;
+    let speakTime = 60;
+    let interval;
+    let usedIndexes = [];
+    let isPaused = false;
+    let currentCallback = null;
+    let remaining = 0;
+
+    function getRandomQuestion() {
+      if (usedIndexes.length === questions.length) {
+        usedIndexes = [];
+      }
+      let index;
+      do {
+        index = Math.floor(Math.random() * questions.length);
+      } while (usedIndexes.includes(index));
+      usedIndexes.push(index);
+      return questions[index];
+    }
+
+    function startCycle() {
+      clearInterval(interval);
+      document.getElementById('question').textContent = getRandomQuestion();
+      startTimer(readTime, "Read the question", "reading", () => {
+        startTimer(speakTime, "Speak", "speaking", startCycle);
+      });
+    }
+
+    function startTimer(seconds, label, cssClass, callback) {
+      remaining = seconds;
+      const timer = document.getElementById("timer");
+      const labelEl = document.getElementById("timer-label");
+      currentCallback = callback;
+
+      labelEl.textContent = label;
+      timer.className = cssClass;
+      timer.textContent = `${remaining} seconds`;
+
+      clearInterval(interval);
+      interval = setInterval(() => {
+        if (!isPaused) {
+          remaining--;
+          timer.textContent = `${remaining} seconds`;
+          if (remaining <= 0) {
+            clearInterval(interval);
+            callback();
+          }
+        }
+      }, 1000);
+    }
+
+    function togglePause() {
+      isPaused = !isPaused;
+      document.getElementById("pause-btn").textContent = isPaused ? "Resume" : "Pause";
+    }
+
+    startCycle();
+  </script>
+</body>
+</html>
