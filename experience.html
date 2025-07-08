@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Experience Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f0f4f8;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    #timer-label {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    #timer {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    #timer.reading {
+      color: orange;
+    }
+    #timer.speaking {
+      color: green;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px 10px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question">Loading...</div>
+  <div id="timer-label"></div>
+  <div id="timer" class=""></div>
+  <button onclick="startCycle()">New Question</button>
+  <button onclick="togglePause()" id="pause-btn">Pause</button>
+
+  <script>
+    const completions = [
+        "ate a really bad meal.",
+        "ate something disgusting.",
+        "tried something new for the first time.",
+"got lost in an unfamiliar place.",
+"helped someone who needed assistance.",
+"made a difficult decision.",
+"worked hard to achieve a goal.",
+"felt proud of something you did.",
+"learned a valuable lesson.",
+"overcame a fear.",
+"forgot something important.",
+"traveled to a place you had never been.",
+"missed an important appointment.",
+"baked something from scratch.",
+"gave someone a meaningful gift.",
+"took care of a pet.",
+"found money on the ground.",
+"lost something valuable.",
+"got caught in the rain.",
+"fixed something that was broken.",
+"visited a new city.",
+"taught someone how to do something.",
+"made a new friend.",
+"took a long walk alone.",
+"spent the whole day outside.",
+"got very good news.",
+"had to wait a long time.",
+"felt nervous before something big.",
+"played a game and won.",
+"played a game and lost.",
+"woke up late for something important.",
+"helped a family member with a task.",
+"ate something you’d never tried before.",
+"forgot what you were going to say.",
+"met someone interesting.",
+"had a strange dream.",
+"cleaned your whole room or house.",
+"tried a new hobby.",
+"watched a really good movie.",
+"read a book you enjoyed.",
+"tried to stay awake but fell asleep.",
+"got stuck in traffic.",
+"gave someone directions.",
+"received a compliment.",
+"got a haircut you didn’t like.",
+"visited a museum or gallery.",
+"took public transportation.",
+"walked a long distance.",
+"attended a special event.",
+"tried a new restaurant.",
+"wrote something by hand.",
+"took a photo you really liked.",
+"wore something unusual.",
+"bought something you regretted.",
+"cooked a meal for others.",
+"ran into someone unexpectedly.",
+"went somewhere by yourself.",
+"laughed until you cried.",
+"felt homesick.",
+"found something you thought was lost.",
+"tried to fix a mistake.",
+"stood in a long line.",
+"forgot your umbrella on a rainy day.",
+"woke up before your alarm.",
+"sent a message to the wrong person.",
+"tried to learn a few words in another language.",
+"took a wrong turn.",
+"cleaned out your closet.",
+"got sunburned.",
+"watched the sunrise or sunset.",
+"gave someone a surprise.",
+"helped a stranger.",
+"asked someone for help.",
+"got good feedback on something you did.",
+"took part in a group project.",
+"attended a wedding.",
+"had a quiet evening at home.",
+"wrote in a journal or diary.",
+"organized something messy.",
+"visited a friend or relative.",
+"received unexpected help.",
+"made a decision quickly.",
+"repaired something on your own.",
+"followed a recipe.",
+"visited a famous place.",
+"gave advice to a friend.",
+"took a day off.",
+"had a conversation with someone new.",
+"bought a gift for someone.",
+"lost your keys or phone.",
+"borrowed something from someone.",
+"got your clothes dirty unexpectedly.",
+"heard a funny joke.",
+"made someone laugh.",
+"joined a class or workshop.",
+"watched a sports game.",
+"took care of a child.",
+"recycled or reused something.",
+"picked up a new skill.",
+"went grocery shopping.",
+"felt really relaxed.",
+"waited for someone who was late.",
+"forgot something at the store.",
+"went somewhere for the first time.",
+"finished a project early.",
+"gave someone encouragement.",
+"listened to music for hours.",
+"wrote a thank-you note.",
+"noticed something beautiful.",
+"walked in nature.",
+"had a conversation that stayed with you.",
+"took a break from your routine.",
+"helped clean up after an event.",
+"accidentally broke something.",
+"won a small prize or award.",
+"wrote a letter or postcard.",
+"ate too much at a meal.",
+"got caught in a storm.",
+"helped someone move.",
+"got locked out of somewhere.",
+"waited for a delivery.",
+"planted something in a garden.",
+"rearranged your furniture.",
+"tried to save money.",
+"forgot an important date.",
+"overslept and had to rush.",
+"traveled by train or bus.",
+"visited a library.",
+"spoke in front of a group.",
+"bumped into an old friend.",
+"bought something online.",
+"helped someone carry something heavy.",
+"watched a live performance.",
+"had to stay up late.",
+"celebrated a special occasion.",
+"ate at a buffet.",
+"wore something new for the first time.",
+"tried a food you didn’t like.",
+"visited a place from your childhood.",
+"read a newspaper or magazine.",
+"had to explain something complicated.",
+"took care of a house or apartment.",
+"used a map or GPS.",
+"donated something you no longer needed.",
+"waited for someone in the cold.",
+"used a tool or appliance you’d never used before.",
+"packed for a trip.",
+"forgot to bring something important.",
+"learned how to do something by watching a video.",
+"helped someone with directions.",
+"stood up for someone.",
+"heard something that inspired you.",
+"cleaned up a mess you didn’t make.",
+"played a board game or card game.",
+"had to speak loudly in a noisy place.",
+"waited at an airport.",
+"learned something from a mistake.",
+"had to solve a problem quickly.",
+"noticed someone doing something kind.",
+"forgot what you were supposed to do.",
+"took a photo you were proud of.",
+"made a meal with only a few ingredients.",
+"found something you thought you had lost.",
+"walked somewhere instead of driving.",
+"shared something important with someone.",
+"asked a question you were nervous to ask.",
+"stayed up all night.",
+"helped set up for a party or event.",
+"visited a new neighborhood.",
+"wrote a list to stay organized.",
+"watched a documentary or educational video.",
+"read instructions carefully before starting something.",
+"found a shortcut that saved time.",
+"waited for hours without getting frustrated.",
+"got through a boring task.",
+"reused or repurposed something.",
+"received a message that made you happy.",
+"had a conversation that changed your mind.",
+"felt proud after finishing something difficult.",
+"forgot your password and had to reset it.",
+"found something on sale that you needed.",
+"checked something off your to-do list.",
+"visited a historical place.",
+"gave someone a compliment.",
+"asked for someone’s opinion.",
+"watched the stars or night sky.",
+"ate something you cooked yourself.",
+"made a plan and stuck to it.",
+"took a deep breath before doing something hard.",
+"followed someone’s advice.",
+"discovered a new favorite song or artist.",
+"cleaned something that hadn’t been cleaned in a long time.",
+"found a quiet place to relax.",
+"learned something by making a mistake.",
+"felt nervous but did it anyway.",
+"walked barefoot outside.",
+"listened to someone without interrupting.",
+"took a nap in the middle of the day.",
+"drank something warm on a cold day.",
+"found beauty in something small.",
+"woke up early on purpose.",
+"smiled at a stranger.",
+"noticed someone doing something helpful.",
+"felt calm during a stressful moment.",
+"bought something practical instead of fun.",
+"used your imagination to solve a problem.",
+"stayed silent when you wanted to speak.",
+"chose to be kind instead of right.",
+"learned something new about someone you know well."
+    ];
+
+    let readTime = 5;
+    let speakTime = 60;
+    let interval;
+    let usedIndexes = [];
+    let isPaused = false;
+    let currentCallback = null;
+    let remaining = 0;
+
+    function getRandomCompletion() {
+      if (usedIndexes.length === completions.length) {
+        usedIndexes = [];
+      }
+      let index;
+      do {
+        index = Math.floor(Math.random() * completions.length);
+      } while (usedIndexes.includes(index));
+      usedIndexes.push(index);
+      return completions[index];
+    }
+
+    function startCycle() {
+      clearInterval(interval);
+      document.getElementById('question').textContent = "Talk about a time when you " + getRandomCompletion();
+      startTimer(readTime, "Read the question", "reading", () => {
+        startTimer(speakTime, "Speak", "speaking", startCycle);
+      });
+    }
+
+    function startTimer(seconds, label, cssClass, callback) {
+      remaining = seconds;
+      const timer = document.getElementById("timer");
+      const labelEl = document.getElementById("timer-label");
+      currentCallback = callback;
+
+      labelEl.textContent = label;
+      timer.className = cssClass;
+      timer.textContent = formatTime(remaining);
+
+      clearInterval(interval);
+      interval = setInterval(() => {
+        if (!isPaused) {
+          remaining--;
+          timer.textContent = formatTime(remaining);
+          if (remaining <= 0) {
+            clearInterval(interval);
+            callback();
+          }
+        }
+      }, 1000);
+    }
+
+    function formatTime(sec) {
+      const min = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${min}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function togglePause() {
+      isPaused = !isPaused;
+      document.getElementById("pause-btn").textContent = isPaused ? "Resume" : "Pause";
+    }
+
+    startCycle();
+  </script>
+</body>
+</html>

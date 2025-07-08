@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advantages & Disadvantages Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f0f4f8;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    #timer-label {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    #timer {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    #timer.reading {
+      color: orange;
+    }
+    #timer.speaking {
+      color: green;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px 10px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question">Loading...</div>
+  <div id="timer-label"></div>
+  <div id="timer" class=""></div>
+  <button onclick="startCycle()">New Question</button>
+  <button onclick="togglePause()" id="pause-btn">Pause</button>
+
+  <script>
+    const completions = [
+    "learning a new language online?",
+    "taking the bus instead of driving a car?",
+    "working at home instead of going to an office?",
+    "getting news from social media instead of TV?",
+    "sharing an apartment with a roommate to save money?",
+    "making a weekly budget?",
+"bringing lunch to work?",
+"waking up early every day?",
+"taking a class after work?",
+"asking your boss for feedback?",
+"taking a daily walk?",
+"sharing a car with someone?",
+"planning meals every Sunday?",
+"using a calendar to plan?",
+"reading news in English?",
+"buying only what you need?",
+"taking an online course?",
+"going to the gym weekly?",
+"writing a daily to-do list?",
+"setting goals for the year?",
+"spending less time online?",
+"living in a smaller place?",
+"calling your family more often?",
+"cooking simple meals at home?",
+"volunteering once a month?",
+"cooking dinner instead of ordering food?",
+"moving to a new neighborhood?",
+"getting a second job for savings?",
+"buying furniture second-hand to save?",
+"taking the train instead of flying?",
+"living close to your workplace?",
+"shopping only once a week?",
+"starting a regular fitness routine?",
+"cleaning your house every weekend?",
+"drinking only water during meals?",
+"paying bills as soon as possible?",
+"sharing expenses with a roommate?",
+"gardening as a weekend hobby?",
+"planning your week every Sunday?",
+"waking up without an alarm?",
+"limiting coffee to one cup daily?",
+"preparing meals for the week?",
+"keeping your phone on silent?",
+"taking short breaks during work?",
+"doing one task at a time?",
+"leaving work at the same time?",
+"getting groceries from local markets?",
+"cycling to work when possible?",
+"learning to drive later in life?",
+"checking the weather before leaving?",
+"wearing the same outfit twice?",
+"doing your taxes without help?",
+"buying gifts during big sales?",
+"leaving your phone outside the bedroom?",
+"getting up early on weekends?",
+"asking for help when needed?",
+"bringing your own bags shopping?",
+"setting a budget for each week?",
+"traveling to a nearby town?",
+"spending a weekend without internet?",
+"wearing comfortable shoes to work?",
+"visiting new places in your city?",
+"doing laundry once a week?",
+"keeping cash instead of using cards?",
+"watching less TV in the evening?",
+"switching to a plant-based diet?",
+"working extra hours for more pay?",
+"taking care of a relative?",
+"eating dinner at the same time?",
+"buying food in bulk?",
+"walking instead of using elevators?",
+"canceling unused subscriptions?",
+"using a planner every day?",
+"keeping a personal budget?",
+"avoiding screens before bedtime?",
+"simple furniture",
+"early mornings",
+"quiet weekends",
+"budget travel",
+"shared apartments",
+"homemade meals",
+"long commutes",
+"daily exercise",
+"taking short naps during the day?",
+"eating the same meals each week?",
+"starting a new hobby as an adult?",
+"getting a pet for companionship?",
+"doing housework in the morning?",
+"spending weekends doing nothing?",
+"moving closer to your family?",
+"going to bed at nine?",
+"cutting back on screen time?",
+"keeping a list of daily tasks?",
+"shared kitchens",
+"weekly routines",
+"basic cooking skills",
+"no-spend weekends",
+"second-hand clothes",
+"home repairs",
+"small kitchens",
+"slow internet",
+"cold showers?",
+"online shopping",
+"public libraries?",
+"eating the same breakfast every day?",
+"getting to work before 8 a.m.?",
+"leaving your phone at home?",
+"working on weekends to earn more?",
+"checking the news once a day?",
+"taking a short walk after lunch?",
+"going to bed before 10 p.m.?",
+"spending less time on your phone?",
+"turning off lights when not needed?",
+"buying groceries late at night?",
+"cleaning the kitchen every evening?",
+"drinking only water during the day?",
+"keeping your phone in airplane mode?",
+"talking to neighbors regularly?",
+"eating the same dinner each night?",
+"going to work without coffee?",
+"making your bed each morning?",
+"writing down your weekly goals?",
+"leaving work at exactly 5 p.m.?",
+"driving to work instead of walking?",
+"eating out more than cooking?",
+"visiting your parents every weekend?",
+"exercising even when you're tired?",
+"watching only one show per night?",
+"checking your schedule every morning?",
+"answering emails first thing at work?",
+"staying home on long weekends?",
+"cleaning the bathroom every Saturday?",
+"taking a break every 30 minutes?",
+"replying to messages right away?",
+"leaving dishes in the sink overnight?",
+"shopping only when something runs out?",
+"folding clothes right after drying?",
+"checking your bank account daily?",
+"working from cafés during the week?",
+"turning your phone off on Sundays?",
+"talking to a friend each day?",
+"doing one task at a time?",
+"checking weather before getting dressed?",
+"eating dinner without watching TV?",
+"bringing your own bag to stores?",
+"limiting online shopping to weekends?",
+"doing chores in the early morning?",
+"drinking coffee late in the day?",
+"taking your lunch break outside?",
+"turning off music while working?",
+"checking the fridge before shopping?",
+"sticking to a daily routine?",
+"doing all of your errands in one trip?",
+"electric toothbrushes",
+"frozen vegetables",
+"reusable water bottles",
+"wireless headphones",
+"pressure cookers",
+"gas stoves",
+"electric fans",
+"travel mugs",
+"noise-canceling headphones",
+"laundry baskets",
+"microwave ovens",
+"smartphone chargers",
+"digital calendars",
+"manual can openers",
+"dish drying racks",
+"frozen pizzas",
+"yoga mats",
+"office chairs",
+"vacuum cleaners",
+"rice cookers",
+"LED light bulbs",
+"portable speakers",
+"filtered water pitchers",
+"reusable shopping bags",
+"electric kettles",
+"kitchen timers",
+"folding tables",
+"plastic containers",
+"garden tools",
+"toaster ovens",
+"instant noodles",
+"home printers",
+"slow cookers",
+"cleaning supplies",
+"desk lamps",
+"refrigerated leftovers",
+"nonstick pans",
+"oven mitts",
+"grilled cheeses",
+"steamed vegetables",
+"wireless keyboards",
+"bottle openers",
+"frying pans",
+"toilet brushes",
+"soup cans",
+"frozen berries",
+"shower caddies",
+"coffee grinders",
+"recycling bins",
+"sandwich makers",
+"water bottles",
+"smartphones",
+"notebooks",
+"pens and pencils",
+"lunch boxes",
+"shopping carts",
+"cleaning rags",
+"dish sponges",
+"measuring cups",
+"mixing bowls",
+"cutting boards",
+"salad bowls",
+"coffee mugs",
+"mason jars",
+"tupperware containers",
+"oven trays",
+"rubber gloves",
+"face masks",
+"paper towels",
+"garbage bags",
+"broom handles",
+"mop heads",
+"power strips",
+"extension cords",
+"charging cables",
+"USB drives",
+"laptop stands",
+"desk organizers",
+"shoe racks",
+"coat hooks",
+"storage bins",
+"bookshelves",
+"reading glasses",
+"eyeglass cases",
+"pill organizers",
+"alarm clocks",
+"picture frames",
+"wall calendars",
+"sticky notes",
+"index cards",
+"ink cartridges",
+"light switches",
+"drawer handles",
+"portable chargers",
+"plastic utensils",
+"cooking aprons",
+"fruit baskets",
+"kitchen scales",
+"baking sheets",
+"cheese graters"
+
+    ];
+
+    let readTime = 5;
+    let speakTime = 90;
+    let interval;
+    let usedIndexes = [];
+    let isPaused = false;
+    let currentCallback = null;
+    let remaining = 0;
+
+    function getRandomCompletion() {
+      if (usedIndexes.length === completions.length) {
+        usedIndexes = [];
+      }
+      let index;
+      do {
+        index = Math.floor(Math.random() * completions.length);
+      } while (usedIndexes.includes(index));
+      usedIndexes.push(index);
+      return completions[index];
+    }
+
+    function startCycle() {
+      clearInterval(interval);
+      document.getElementById('question').textContent = "What are the advantages and disadvantages of " + getRandomCompletion();
+      startTimer(readTime, "Read the question", "reading", () => {
+        startTimer(speakTime, "Speak", "speaking", startCycle);
+      });
+    }
+
+    function startTimer(seconds, label, cssClass, callback) {
+      remaining = seconds;
+      const timer = document.getElementById("timer");
+      const labelEl = document.getElementById("timer-label");
+      currentCallback = callback;
+
+      labelEl.textContent = label;
+      timer.className = cssClass;
+      timer.textContent = formatTime(remaining);
+
+      clearInterval(interval);
+      interval = setInterval(() => {
+        if (!isPaused) {
+          remaining--;
+          timer.textContent = formatTime(remaining);
+          if (remaining <= 0) {
+            clearInterval(interval);
+            callback();
+          }
+        }
+      }, 1000);
+    }
+
+    function formatTime(sec) {
+      const min = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${min}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function togglePause() {
+      isPaused = !isPaused;
+      document.getElementById("pause-btn").textContent = isPaused ? "Resume" : "Pause";
+    }
+
+    startCycle();
+  </script>
+</body>
+</html>
