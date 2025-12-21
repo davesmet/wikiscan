@@ -71,6 +71,26 @@
       background:white;
       font-size:12px;
     }
+    select{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:9px 10px;
+      background:white;
+      font-size:14px;
+      max-width: 100%;
+    }
+    .voiceRow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .voiceRow label{
+      font-size:13px;
+      color:#333;
+      min-width: 110px;
+    }
   </style>
 </head>
 
@@ -85,6 +105,15 @@
 
   <div class="card">
     <textarea id="textBox" spellcheck="false" placeholder="Type your word or sentence here..."></textarea>
+
+    <!-- NEW: voice dropdown -->
+    <div class="voiceRow">
+      <label for="voiceSelect">Voice</label>
+      <select id="voiceSelect" disabled>
+        <option>Loading voices…</option>
+      </select>
+      <button class="small" id="btnResetVoice" disabled>Auto-pick</button>
+    </div>
 
     <div class="row" style="margin-top:10px;">
       <button class="primary" id="btnListen">Listen (Computer)</button>
@@ -107,7 +136,7 @@
 
     <div class="meta">
       <div>Device: <code id="deviceState">unknown</code></div>
-      <div>Voice: <code id="voiceName">searching…</code></div>
+      <div>Selected voice: <code id="voiceName">searching…</code></div>
       <div>Mic: <code id="micState">not started</code></div>
       <div>Recording: <code id="recState">none</code></div>
       <div>Trim: <code id="trimState">0 ms</code></div>
@@ -127,48 +156,14 @@
       return (s || "").replace(/\s+/g, " ").trim();
     }
 
-    // --------- iOS detection + voice picking ----------
+    // --------- iOS detection ----------
     function isIOS() {
-      // Covers iPhone/iPad + iPadOS desktop UA
       const ua = navigator.userAgent || "";
       const iOSDevice = /iPhone|iPad|iPod/i.test(ua);
       const iPadOS13Plus = (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       return iOSDevice || iPadOS13Plus;
     }
     $("deviceState").textContent = isIOS() ? "iOS" : "non-iOS";
-
-    function pickBestVoice(voices, lang = "en-US") {
-      const wantedLang = (lang || "").toLowerCase();
-      const byLang = voices.filter(v => ((v.lang || "").toLowerCase() === wantedLang));
-      const pool = byLang.length ? byLang : voices;
-
-      if (isIOS()) {
-        // Prefer Siri voices IF Safari exposes them (often it doesn't)
-        const siri = pool.find(v => (v.name || "").toLowerCase().includes("siri"));
-        if (siri) return siri;
-
-        // High-quality common iOS fallbacks
-        const alex = pool.find(v => (v.name || "").toLowerCase() === "alex");
-        if (alex) return alex;
-
-        const samantha = pool.find(v => (v.name || "").toLowerCase().includes("samantha"));
-        if (samantha) return samantha;
-
-        // Default voice if marked
-        const def = pool.find(v => v.default);
-        if (def) return def;
-      }
-
-      // Non-iOS: prefer Google US English when available
-      return (
-        voices.find(v => v.name === "Google US English") ||
-        voices.find(v => (v.name || "").toLowerCase().includes("google us english")) ||
-        pool.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
-        pool.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
-        voices[0] ||
-        null
-      );
-    }
 
     // --------- Source Buttons ----------
     const sourcePill = $("sourcePill");
@@ -229,23 +224,121 @@
       sourcePill.textContent = "Source: manual";
     });
 
-    // --------- TTS ----------
-    let selectedVoice = null;
+    // --------- TTS + Voice Dropdown ----------
+    const voiceSelect = $("voiceSelect");
+    const btnResetVoice = $("btnResetVoice");
 
-    function chooseVoice() {
-      const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
-      selectedVoice = pickBestVoice(voices, "en-US");
-      $("voiceName").textContent = selectedVoice ? selectedVoice.name : "not found";
+    let selectedVoice = null;
+    let allVoices = [];
+    const STORAGE_KEY = "pronun_voice_choice_v1"; // stores voice URI
+
+    function pickAutoVoice(voices, lang = "en-US") {
+      const wantedLang = (lang || "").toLowerCase();
+      const byLang = voices.filter(v => ((v.lang || "").toLowerCase() === wantedLang));
+      const pool = byLang.length ? byLang : voices;
+
+      if (isIOS()) {
+        const siri = pool.find(v => (v.name || "").toLowerCase().includes("siri"));
+        if (siri) return siri;
+
+        const alex = pool.find(v => (v.name || "").toLowerCase() === "alex");
+        if (alex) return alex;
+
+        const samantha = pool.find(v => (v.name || "").toLowerCase().includes("samantha"));
+        if (samantha) return samantha;
+
+        const def = pool.find(v => v.default);
+        if (def) return def;
+      }
+
+      return (
+        voices.find(v => v.name === "Google US English") ||
+        voices.find(v => (v.name || "").toLowerCase().includes("google us english")) ||
+        pool.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
+        pool.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
+        voices[0] ||
+        null
+      );
+    }
+
+    function setSelectedVoice(v) {
+      selectedVoice = v || null;
+      $("voiceName").textContent = selectedVoice ? `${selectedVoice.name} (${selectedVoice.lang || "?"})` : "not found";
+    }
+
+    function buildVoiceDropdown(voices) {
+      // Sort by lang then name (stable-ish)
+      const sorted = [...voices].sort((a, b) => {
+        const la = (a.lang || "").toLowerCase();
+        const lb = (b.lang || "").toLowerCase();
+        if (la !== lb) return la.localeCompare(lb);
+        return (a.name || "").localeCompare(b.name || "");
+      });
+
+      voiceSelect.innerHTML = "";
+      for (const v of sorted) {
+        const opt = document.createElement("option");
+        // voiceURI is more stable than name; name is for display
+        opt.value = v.voiceURI || v.name;
+        opt.textContent = `${v.name} — ${v.lang || "?"}${v.default ? " (default)" : ""}`;
+        voiceSelect.appendChild(opt);
+      }
+
+      voiceSelect.disabled = sorted.length === 0;
+      btnResetVoice.disabled = sorted.length === 0;
+    }
+
+    function findVoiceByURIorName(voices, key) {
+      if (!key) return null;
+      return voices.find(v => v.voiceURI === key) || voices.find(v => v.name === key) || null;
+    }
+
+    function applySavedOrAutoVoice() {
+      const savedKey = localStorage.getItem(STORAGE_KEY);
+      const savedVoice = findVoiceByURIorName(allVoices, savedKey);
+      const auto = pickAutoVoice(allVoices, "en-US");
+      const final = savedVoice || auto;
+
+      setSelectedVoice(final);
+
+      // Sync dropdown selection to selected voice
+      if (final) {
+        const key = final.voiceURI || final.name;
+        voiceSelect.value = key;
+      }
+    }
+
+    function refreshVoices() {
+      if (!("speechSynthesis" in window)) return;
+      allVoices = speechSynthesis.getVoices() || [];
+      buildVoiceDropdown(allVoices);
+      applySavedOrAutoVoice();
     }
 
     if ("speechSynthesis" in window) {
       // Voices often load asynchronously
-      speechSynthesis.onvoiceschanged = chooseVoice;
-      chooseVoice();
+      speechSynthesis.onvoiceschanged = refreshVoices;
+      refreshVoices();
     } else {
       $("voiceName").textContent = "speechSynthesis not supported";
+      voiceSelect.disabled = true;
+      btnResetVoice.disabled = true;
       setStatus("Your browser doesn’t support built-in TTS (speechSynthesis).", "bad");
     }
+
+    voiceSelect.addEventListener("change", () => {
+      const key = voiceSelect.value;
+      const v = findVoiceByURIorName(allVoices, key);
+      setSelectedVoice(v);
+      if (v) localStorage.setItem(STORAGE_KEY, v.voiceURI || v.name);
+      setStatus(v ? `Voice set to: ${v.name}` : "Voice not found.", v ? "good" : "bad");
+    });
+
+    btnResetVoice.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      applySavedOrAutoVoice();
+      setStatus("Voice set to auto-pick.", "good");
+    });
 
     function speakText(text, onEnd) {
       if (!("speechSynthesis" in window)) return;
