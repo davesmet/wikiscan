@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pronunciation Practice (Tatoeba + Random Word)</title>
+  <style>
+    :root { --border:#d0d7de; --bg:#fafafa; --text:#111; }
+    body{
+      font-family: Arial, sans-serif;
+      margin:0; padding:24px;
+      color:var(--text);
+      background:white;
+      max-width: 820px;
+      margin-inline:auto;
+    }
+    h1{ font-size: 20px; margin:0 0 14px; }
+    .row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .card{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:14px;
+      background: var(--bg);
+      margin-top:12px;
+    }
+    textarea{
+      width:100%;
+      min-height:110px;
+      resize:vertical;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:12px;
+      font-size:16px;
+      line-height:1.35;
+      outline:none;
+      background:white;
+    }
+    button{
+      border:1px solid var(--border);
+      background:white;
+      border-radius:10px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    button:hover{ background:#f3f4f6; }
+    button:disabled{ opacity:.55; cursor:not-allowed; }
+    .primary{ background:#111; color:white; border-color:#111; }
+    .primary:hover{ background:#222; }
+    .danger{ background:#b42318; color:white; border-color:#b42318; }
+    .danger:hover{ background:#9b1c12; }
+    .small{ font-size:12px; padding:8px 10px; border-radius:9px; }
+    .meta{ font-size:12px; color:#444; margin-top:10px; display:flex; gap:14px; flex-wrap:wrap; }
+    .meta code{ background:#fff; padding:2px 6px; border:1px solid var(--border); border-radius:8px; }
+    .status{
+      margin-top:10px;
+      font-size:13px;
+      color:#333;
+    }
+    .status.bad{ color:#b42318; }
+    .status.good{ color:#1a7f37; }
+    .sliderRow{
+      display:flex; align-items:center; gap:10px; margin-top:10px;
+    }
+    input[type="range"]{ width:240px; }
+    .pill{
+      display:inline-block;
+      padding:3px 8px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:white;
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pronunciation Practice</h1>
+
+  <div class="row">
+    <button id="btnTatoeba">Random sentence (Tatoeba)</button>
+    <button id="btnWord">Random word (Dictionary)</button>
+    <span class="pill" id="sourcePill">Source: manual</span>
+  </div>
+
+  <div class="card">
+    <textarea id="textBox" spellcheck="false" placeholder="Type your word or sentence here..."></textarea>
+
+    <div class="row" style="margin-top:10px;">
+      <button class="primary" id="btnListen">Listen (Computer)</button>
+      <button id="btnPlayUser" disabled>Listen (You)</button>
+      <button id="btnCompare" disabled>Compare</button>
+    </div>
+
+    <div class="sliderRow">
+      <div style="min-width:150px;">Speed</div>
+      <input id="speed" type="range" min="0.6" max="1.3" step="0.05" value="1.0" />
+      <code id="speedVal">1.00×</code>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <button class="danger" id="btnRecordHold">Record (Hold)</button>
+      <button class="small" id="btnClearRec" disabled>Clear recording</button>
+    </div>
+
+    <div class="status" id="status">Ready.</div>
+
+    <div class="meta">
+      <div>Voice: <code id="voiceName">searching…</code></div>
+      <div>Mic: <code id="micState">not started</code></div>
+      <div>Recording: <code id="recState">none</code></div>
+      <div>Trim: <code id="trimState">0 ms</code></div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const statusEl = $("status");
+    function setStatus(msg, kind = "") {
+      statusEl.className = "status" + (kind ? " " + kind : "");
+      statusEl.textContent = msg;
+    }
+
+    function sanitizeText(s) {
+      return (s || "").replace(/\s+/g, " ").trim();
+    }
+
+    // --------- Source Buttons ----------
+    const sourcePill = $("sourcePill");
+    const textBox = $("textBox");
+
+    async function getRandomTatoebaSentence() {
+      const url = "https://api.tatoeba.org/unstable/sentences?lang=eng&tag=OK&word_count=4-14&limit=50";
+      const res = await fetch(url, { method: "GET" });
+      if (!res.ok) throw new Error("Tatoeba request failed: " + res.status);
+
+      const json = await res.json();
+      const arr = json?.data || [];
+      if (!arr.length) throw new Error("No sentences returned from Tatoeba.");
+
+      const pick = arr[Math.floor(Math.random() * arr.length)];
+      const sentence = pick?.text || "";
+      if (!sentence) throw new Error("Sentence missing text.");
+      return sentence;
+    }
+
+    async function getRandomWord() {
+      const url = "https://random-word-api.herokuapp.com/word?number=1";
+      const res = await fetch(url, { method: "GET" });
+      if (!res.ok) throw new Error("Random-word request failed: " + res.status);
+      const json = await res.json();
+      const w = Array.isArray(json) ? json[0] : "";
+      if (!w) throw new Error("No word returned.");
+      return w;
+    }
+
+    $("btnTatoeba").addEventListener("click", async () => {
+      try {
+        setStatus("Fetching a random sentence…");
+        const s = await getRandomTatoebaSentence();
+        textBox.value = s;
+        sourcePill.textContent = "Source: Tatoeba";
+        setStatus("Loaded a Tatoeba sentence.", "good");
+      } catch (e) {
+        console.error(e);
+        setStatus("Couldn’t load from Tatoeba (network/CORS or API issue). Try again, or type your own.", "bad");
+      }
+    });
+
+    $("btnWord").addEventListener("click", async () => {
+      try {
+        setStatus("Fetching a random word…");
+        const w = await getRandomWord();
+        textBox.value = w;
+        sourcePill.textContent = "Source: dictionary";
+        setStatus("Loaded a random word.", "good");
+      } catch (e) {
+        console.error(e);
+        setStatus("Couldn’t load a random word (network/CORS or API issue). Try again, or type your own.", "bad");
+      }
+    });
+
+    textBox.addEventListener("input", () => {
+      sourcePill.textContent = "Source: manual";
+    });
+
+    // --------- TTS ----------
+    let voices = [];
+    let selectedVoice = null;
+
+    function chooseVoice() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const targetName = "Google US English";
+
+      selectedVoice =
+        voices.find(v => v.name === targetName) ||
+        voices.find(v => v.name?.toLowerCase().includes("google us english")) ||
+        voices.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
+        voices.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
+        null;
+
+      $("voiceName").textContent = selectedVoice ? selectedVoice.name : "not found";
+    }
+
+    if ("speechSynthesis" in window) {
+      speechSynthesis.onvoiceschanged = chooseVoice;
+      chooseVoice();
+    } else {
+      $("voiceName").textContent = "speechSynthesis not supported";
+      setStatus("Your browser doesn’t support built-in TTS (speechSynthesis).", "bad");
+    }
+
+    function speakText(text, onEnd) {
+      if (!("speechSynthesis" in window)) return;
+      const clean = sanitizeText(text);
+      if (!clean) {
+        setStatus("Type something first.", "bad");
+        return;
+      }
+      speechSynthesis.cancel();
+
+      const u = new SpeechSynthesisUtterance(clean);
+      if (selectedVoice) u.voice = selectedVoice;
+
+      const rate = parseFloat($("speed").value);
+      u.rate = rate;
+
+      u.onend = () => onEnd && onEnd();
+      u.onerror = () => setStatus("TTS error occurred.", "bad");
+
+      speechSynthesis.speak(u);
+    }
+
+    $("speed").addEventListener("input", () => {
+      $("speedVal").textContent = Number($("speed").value).toFixed(2) + "×";
+    });
+
+    $("btnListen").addEventListener("click", () => {
+      setStatus("Playing TTS…");
+      speakText(textBox.value, () => setStatus("Done.", "good"));
+    });
+
+    // --------- Speech-start trim ----------
+    let audioCtx = null;
+    let userBuffer = null;
+    let userTrimOffsetSec = 0;
+
+    function getAudioCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function setTrimMs(ms) {
+      $("trimState").textContent = `${ms} ms`;
+    }
+
+    function detectSpeechStart(buffer, {
+      threshold = 0.02,
+      frameMs = 10,
+      holdMs = 90,     // CHANGED: was 60
+      maxLeadSec = 2.0
+    } = {}) {
+      const sampleRate = buffer.sampleRate;
+      const channel = buffer.getChannelData(0);
+      const frameSize = Math.max(1, Math.floor(sampleRate * (frameMs / 1000)));
+      const holdFrames = Math.max(1, Math.floor(holdMs / frameMs));
+      const maxLeadSamples = Math.min(channel.length, Math.floor(sampleRate * maxLeadSec));
+
+      let consecutive = 0;
+
+      for (let i = 0; i < maxLeadSamples; i += frameSize) {
+        let sumSq = 0;
+        const end = Math.min(channel.length, i + frameSize);
+        for (let j = i; j < end; j++) sumSq += channel[j] * channel[j];
+        const rms = Math.sqrt(sumSq / (end - i));
+
+        if (rms >= threshold) {
+          consecutive++;
+          if (consecutive >= holdFrames) {
+            // CHANGED: back up more to avoid clipping
+            const backMs = 70; // was 30
+            const start = Math.max(0, i - Math.floor(sampleRate * (backMs / 1000)));
+            return start / sampleRate;
+          }
+        } else {
+          consecutive = 0;
+        }
+      }
+      return 0;
+    }
+
+    async function decodeRecordingToBuffer(blob) {
+      const ctx = getAudioCtx();
+      const arrayBuf = await blob.arrayBuffer();
+      return await ctx.decodeAudioData(arrayBuf);
+    }
+
+    function playBufferFrom(buffer, offsetSec = 0, onEnded) {
+      const ctx = getAudioCtx();
+      ctx.resume?.();
+
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+      src.connect(ctx.destination);
+
+      src.onended = () => onEnded && onEnded();
+      const safeOffset = Math.min(Math.max(0, offsetSec), Math.max(0, buffer.duration - 0.01));
+      src.start(0, safeOffset);
+      return src;
+    }
+
+    // --------- Recording (Hold) ----------
+    let mediaRecorder = null;
+    let chunks = [];
+    let recordingBlob = null;
+    let recordingUrl = null;
+
+    const btnRecordHold = $("btnRecordHold");
+    const btnPlayUser = $("btnPlayUser");
+    const btnCompare = $("btnCompare");
+    const btnClearRec = $("btnClearRec");
+
+    function setRecState(state) { $("recState").textContent = state; }
+    function setMicState(state) { $("micState").textContent = state; }
+
+    async function ensureMic() {
+      if (mediaRecorder && mediaRecorder.state !== "inactive") return true;
+      try {
+        setMicState("requesting…");
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        setMicState("ready");
+
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+
+        mediaRecorder.onstop = async () => {
+          recordingBlob = new Blob(chunks, { type: mediaRecorder.mimeType || "audio/webm" });
+          chunks = [];
+
+          if (recordingUrl) URL.revokeObjectURL(recordingUrl);
+          recordingUrl = URL.createObjectURL(recordingBlob);
+
+          userBuffer = null;
+          userTrimOffsetSec = 0;
+          setTrimMs(0);
+
+          try {
+            userBuffer = await decodeRecordingToBuffer(recordingBlob);
+            userTrimOffsetSec = detectSpeechStart(userBuffer, {
+              threshold: 0.02,
+              holdMs: 90,   // CHANGED: was 60
+              maxLeadSec: 2.0
+            });
+            setTrimMs(Math.round(userTrimOffsetSec * 1000));
+          } catch (err) {
+            console.error(err);
+            userBuffer = null;
+            userTrimOffsetSec = 0;
+            setTrimMs(0);
+          }
+
+          btnPlayUser.disabled = false;
+          btnCompare.disabled = false;
+          btnClearRec.disabled = false;
+
+          setRecState("saved");
+          setStatus("Recording saved.", "good");
+        };
+
+        return true;
+      } catch (err) {
+        console.error(err);
+        setMicState("blocked");
+        setStatus("Microphone blocked or unavailable. Allow mic permission and try again.", "bad");
+        return false;
+      }
+    }
+
+    function startRecording() {
+      if (!mediaRecorder) return;
+      if (mediaRecorder.state === "recording") return;
+      chunks = [];
+      recordingBlob = null;
+
+      setRecState("recording…");
+      setStatus("Recording… (keep holding)", "good");
+      mediaRecorder.start();
+    }
+
+    function stopRecording() {
+      if (!mediaRecorder) return;
+      if (mediaRecorder.state !== "recording") return;
+
+      setRecState("processing…");
+      setStatus("Processing recording…");
+      mediaRecorder.stop();
+    }
+
+    let holding = false;
+
+    async function handleHoldStart(e) {
+      e.preventDefault();
+      if (holding) return;
+      holding = true;
+
+      const ok = await ensureMic();
+      if (!ok) { holding = false; return; }
+
+      if ("speechSynthesis" in window) speechSynthesis.cancel();
+      startRecording();
+    }
+
+    function handleHoldEnd(e) {
+      e.preventDefault();
+      if (!holding) return;
+      holding = false;
+      stopRecording();
+    }
+
+    btnRecordHold.addEventListener("mousedown", handleHoldStart);
+    btnRecordHold.addEventListener("mouseup", handleHoldEnd);
+    btnRecordHold.addEventListener("mouseleave", handleHoldEnd);
+
+    btnRecordHold.addEventListener("touchstart", handleHoldStart, { passive: false });
+    btnRecordHold.addEventListener("touchend", handleHoldEnd, { passive: false });
+    btnRecordHold.addEventListener("touchcancel", handleHoldEnd, { passive: false });
+
+    btnPlayUser.addEventListener("click", () => {
+      if (userBuffer) {
+        setStatus("Playing your recording (trimmed)…");
+        playBufferFrom(userBuffer, userTrimOffsetSec, () => setStatus("Done.", "good"));
+        return;
+      }
+
+      if (!recordingUrl) return;
+      setStatus("Playing your recording…");
+      const audio = new Audio(recordingUrl);
+      audio.onended = () => setStatus("Done.", "good");
+      audio.play().catch(() => setStatus("Couldn’t play your recording.", "bad"));
+    });
+
+    btnClearRec.addEventListener("click", () => {
+      recordingBlob = null;
+      userBuffer = null;
+      userTrimOffsetSec = 0;
+      setTrimMs(0);
+
+      if (recordingUrl) URL.revokeObjectURL(recordingUrl);
+      recordingUrl = null;
+
+      btnPlayUser.disabled = true;
+      btnCompare.disabled = true;
+      btnClearRec.disabled = true;
+
+      setRecState("none");
+      setStatus("Recording cleared.");
+    });
+
+    btnCompare.addEventListener("click", () => {
+      const text = sanitizeText(textBox.value);
+      if (!text) return setStatus("Type something first.", "bad");
+      if (!recordingUrl) return setStatus("Record yourself first.", "bad");
+
+      setStatus("Compare: playing TTS, then your trimmed recording…");
+
+      speakText(text, () => {
+        if (userBuffer) {
+          playBufferFrom(userBuffer, userTrimOffsetSec, () => setStatus("Compare finished.", "good"));
+        } else {
+          const audio = new Audio(recordingUrl);
+          audio.onended = () => setStatus("Compare finished.", "good");
+          audio.play().catch(() => setStatus("Couldn’t play your recording after TTS.", "bad"));
+        }
+      });
+    });
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setStatus("Your browser doesn’t support microphone recording (getUserMedia).", "bad");
+      btnRecordHold.disabled = true;
+    }
+
+    setRecState("none");
+    setTrimMs(0);
+  </script>
+</body>
+</html>
