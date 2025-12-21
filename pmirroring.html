@@ -106,6 +106,7 @@
     <div class="status" id="status">Ready.</div>
 
     <div class="meta">
+      <div>Device: <code id="deviceState">unknown</code></div>
       <div>Voice: <code id="voiceName">searching…</code></div>
       <div>Mic: <code id="micState">not started</code></div>
       <div>Recording: <code id="recState">none</code></div>
@@ -124,6 +125,49 @@
 
     function sanitizeText(s) {
       return (s || "").replace(/\s+/g, " ").trim();
+    }
+
+    // --------- iOS detection + voice picking ----------
+    function isIOS() {
+      // Covers iPhone/iPad + iPadOS desktop UA
+      const ua = navigator.userAgent || "";
+      const iOSDevice = /iPhone|iPad|iPod/i.test(ua);
+      const iPadOS13Plus = (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      return iOSDevice || iPadOS13Plus;
+    }
+    $("deviceState").textContent = isIOS() ? "iOS" : "non-iOS";
+
+    function pickBestVoice(voices, lang = "en-US") {
+      const wantedLang = (lang || "").toLowerCase();
+      const byLang = voices.filter(v => ((v.lang || "").toLowerCase() === wantedLang));
+      const pool = byLang.length ? byLang : voices;
+
+      if (isIOS()) {
+        // Prefer Siri voices IF Safari exposes them (often it doesn't)
+        const siri = pool.find(v => (v.name || "").toLowerCase().includes("siri"));
+        if (siri) return siri;
+
+        // High-quality common iOS fallbacks
+        const alex = pool.find(v => (v.name || "").toLowerCase() === "alex");
+        if (alex) return alex;
+
+        const samantha = pool.find(v => (v.name || "").toLowerCase().includes("samantha"));
+        if (samantha) return samantha;
+
+        // Default voice if marked
+        const def = pool.find(v => v.default);
+        if (def) return def;
+      }
+
+      // Non-iOS: prefer Google US English when available
+      return (
+        voices.find(v => v.name === "Google US English") ||
+        voices.find(v => (v.name || "").toLowerCase().includes("google us english")) ||
+        pool.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
+        pool.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
+        voices[0] ||
+        null
+      );
     }
 
     // --------- Source Buttons ----------
@@ -186,24 +230,16 @@
     });
 
     // --------- TTS ----------
-    let voices = [];
     let selectedVoice = null;
 
     function chooseVoice() {
-      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
-      const targetName = "Google US English";
-
-      selectedVoice =
-        voices.find(v => v.name === targetName) ||
-        voices.find(v => v.name?.toLowerCase().includes("google us english")) ||
-        voices.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
-        voices.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
-        null;
-
+      const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      selectedVoice = pickBestVoice(voices, "en-US");
       $("voiceName").textContent = selectedVoice ? selectedVoice.name : "not found";
     }
 
     if ("speechSynthesis" in window) {
+      // Voices often load asynchronously
       speechSynthesis.onvoiceschanged = chooseVoice;
       chooseVoice();
     } else {
@@ -221,6 +257,9 @@
       speechSynthesis.cancel();
 
       const u = new SpeechSynthesisUtterance(clean);
+
+      // Always set lang (important on iOS)
+      u.lang = "en-US";
       if (selectedVoice) u.voice = selectedVoice;
 
       const rate = parseFloat($("speed").value);
@@ -258,7 +297,7 @@
     function detectSpeechStart(buffer, {
       threshold = 0.02,
       frameMs = 10,
-      holdMs = 90,     // CHANGED: was 60
+      holdMs = 90,
       maxLeadSec = 2.0
     } = {}) {
       const sampleRate = buffer.sampleRate;
@@ -278,8 +317,7 @@
         if (rms >= threshold) {
           consecutive++;
           if (consecutive >= holdFrames) {
-            // CHANGED: back up more to avoid clipping
-            const backMs = 70; // was 30
+            const backMs = 70;
             const start = Math.max(0, i - Math.floor(sampleRate * (backMs / 1000)));
             return start / sampleRate;
           }
@@ -313,7 +351,6 @@
     // --------- Recording (Hold) ----------
     let mediaRecorder = null;
     let chunks = [];
-    let recordingBlob = null;
     let recordingUrl = null;
 
     const btnRecordHold = $("btnRecordHold");
@@ -335,7 +372,7 @@
         mediaRecorder.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
 
         mediaRecorder.onstop = async () => {
-          recordingBlob = new Blob(chunks, { type: mediaRecorder.mimeType || "audio/webm" });
+          const recordingBlob = new Blob(chunks, { type: mediaRecorder.mimeType || "audio/webm" });
           chunks = [];
 
           if (recordingUrl) URL.revokeObjectURL(recordingUrl);
@@ -347,11 +384,7 @@
 
           try {
             userBuffer = await decodeRecordingToBuffer(recordingBlob);
-            userTrimOffsetSec = detectSpeechStart(userBuffer, {
-              threshold: 0.02,
-              holdMs: 90,   // CHANGED: was 60
-              maxLeadSec: 2.0
-            });
+            userTrimOffsetSec = detectSpeechStart(userBuffer, { threshold: 0.02, holdMs: 90, maxLeadSec: 2.0 });
             setTrimMs(Math.round(userTrimOffsetSec * 1000));
           } catch (err) {
             console.error(err);
@@ -381,8 +414,6 @@
       if (!mediaRecorder) return;
       if (mediaRecorder.state === "recording") return;
       chunks = [];
-      recordingBlob = null;
-
       setRecState("recording…");
       setStatus("Recording… (keep holding)", "good");
       mediaRecorder.start();
@@ -391,7 +422,6 @@
     function stopRecording() {
       if (!mediaRecorder) return;
       if (mediaRecorder.state !== "recording") return;
-
       setRecState("processing…");
       setStatus("Processing recording…");
       mediaRecorder.stop();
@@ -432,7 +462,6 @@
         playBufferFrom(userBuffer, userTrimOffsetSec, () => setStatus("Done.", "good"));
         return;
       }
-
       if (!recordingUrl) return;
       setStatus("Playing your recording…");
       const audio = new Audio(recordingUrl);
@@ -441,7 +470,6 @@
     });
 
     btnClearRec.addEventListener("click", () => {
-      recordingBlob = null;
       userBuffer = null;
       userTrimOffsetSec = 0;
       setTrimMs(0);
