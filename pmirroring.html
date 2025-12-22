@@ -410,7 +410,7 @@
         if (rms >= threshold) {
           consecutive++;
           if (consecutive >= holdFrames) {
-            const backMs = 70;
+            const backMs = 100;
             const start = Math.max(0, i - Math.floor(sampleRate * (backMs / 1000)));
             return start / sampleRate;
           }
