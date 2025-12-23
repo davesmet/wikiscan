@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pronunciation Mirroring</title>
+  <title>Pronunciation Practice (Random Word + Voice Picker)</title>
   <style>
     :root { --border:#d0d7de; --bg:#fafafa; --text:#111; }
     body{
@@ -202,19 +202,34 @@
     let allVoices = [];
     const STORAGE_KEY = "pronun_voice_choice_v1"; // stores voice URI
 
+    function nameIncludes(v, s) {
+      return (v?.name || "").toLowerCase().includes(s.toLowerCase());
+    }
+
     function pickAutoVoice(voices, lang = "en-US") {
       const wantedLang = (lang || "").toLowerCase();
       const byLang = voices.filter(v => ((v.lang || "").toLowerCase() === wantedLang));
       const pool = byLang.length ? byLang : voices;
 
       if (isIOS()) {
-        const siri = pool.find(v => (v.name || "").toLowerCase().includes("siri"));
+        // NEW: Prefer Allison (Enhanced) if present/exposed by Safari
+        let allisonEnhanced = pool.find(v => v.name === "Allison (Enhanced)");
+        if (allisonEnhanced) return allisonEnhanced;
+
+        allisonEnhanced = pool.find(v => nameIncludes(v, "allison") && nameIncludes(v, "enhanced"));
+        if (allisonEnhanced) return allisonEnhanced;
+
+        const allison = pool.find(v => nameIncludes(v, "allison"));
+        if (allison) return allison;
+
+        // Then Siri if available, then common good iOS voices
+        const siri = pool.find(v => nameIncludes(v, "siri"));
         if (siri) return siri;
 
         const alex = pool.find(v => (v.name || "").toLowerCase() === "alex");
         if (alex) return alex;
 
-        const samantha = pool.find(v => (v.name || "").toLowerCase().includes("samantha"));
+        const samantha = pool.find(v => nameIncludes(v, "samantha"));
         if (samantha) return samantha;
 
         const def = pool.find(v => v.default);
@@ -223,7 +238,7 @@
 
       return (
         voices.find(v => v.name === "Google US English") ||
-        voices.find(v => (v.name || "").toLowerCase().includes("google us english")) ||
+        voices.find(v => nameIncludes(v, "google us english")) ||
         pool.find(v => (v.lang || "").toLowerCase().startsWith("en-us")) ||
         pool.find(v => (v.lang || "").toLowerCase().startsWith("en")) ||
         voices[0] ||
