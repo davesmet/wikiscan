@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pronunciation Practice (Tatoeba + Random Word)</title>
+  <title>Pronunciation Mirroring</title>
   <style>
     :root { --border:#d0d7de; --bg:#fafafa; --text:#111; }
     body{
@@ -98,7 +98,6 @@
   <h1>Pronunciation Practice</h1>
 
   <div class="row">
-    <button id="btnTatoeba">Random sentence (Tatoeba)</button>
     <button id="btnWord">Random word (Dictionary)</button>
     <span class="pill" id="sourcePill">Source: manual</span>
   </div>
@@ -106,7 +105,6 @@
   <div class="card">
     <textarea id="textBox" spellcheck="false" placeholder="Type your word or sentence here..."></textarea>
 
-    <!-- NEW: voice dropdown -->
     <div class="voiceRow">
       <label for="voiceSelect">Voice</label>
       <select id="voiceSelect" disabled>
@@ -165,24 +163,9 @@
     }
     $("deviceState").textContent = isIOS() ? "iOS" : "non-iOS";
 
-    // --------- Source Buttons ----------
+    // --------- Random Word ----------
     const sourcePill = $("sourcePill");
     const textBox = $("textBox");
-
-    async function getRandomTatoebaSentence() {
-      const url = "https://api.tatoeba.org/unstable/sentences?lang=eng&tag=OK&word_count=4-14&limit=50";
-      const res = await fetch(url, { method: "GET" });
-      if (!res.ok) throw new Error("Tatoeba request failed: " + res.status);
-
-      const json = await res.json();
-      const arr = json?.data || [];
-      if (!arr.length) throw new Error("No sentences returned from Tatoeba.");
-
-      const pick = arr[Math.floor(Math.random() * arr.length)];
-      const sentence = pick?.text || "";
-      if (!sentence) throw new Error("Sentence missing text.");
-      return sentence;
-    }
 
     async function getRandomWord() {
       const url = "https://random-word-api.herokuapp.com/word?number=1";
@@ -193,19 +176,6 @@
       if (!w) throw new Error("No word returned.");
       return w;
     }
-
-    $("btnTatoeba").addEventListener("click", async () => {
-      try {
-        setStatus("Fetching a random sentence…");
-        const s = await getRandomTatoebaSentence();
-        textBox.value = s;
-        sourcePill.textContent = "Source: Tatoeba";
-        setStatus("Loaded a Tatoeba sentence.", "good");
-      } catch (e) {
-        console.error(e);
-        setStatus("Couldn’t load from Tatoeba (network/CORS or API issue). Try again, or type your own.", "bad");
-      }
-    });
 
     $("btnWord").addEventListener("click", async () => {
       try {
@@ -267,7 +237,6 @@
     }
 
     function buildVoiceDropdown(voices) {
-      // Sort by lang then name (stable-ish)
       const sorted = [...voices].sort((a, b) => {
         const la = (a.lang || "").toLowerCase();
         const lb = (b.lang || "").toLowerCase();
@@ -278,7 +247,6 @@
       voiceSelect.innerHTML = "";
       for (const v of sorted) {
         const opt = document.createElement("option");
-        // voiceURI is more stable than name; name is for display
         opt.value = v.voiceURI || v.name;
         opt.textContent = `${v.name} — ${v.lang || "?"}${v.default ? " (default)" : ""}`;
         voiceSelect.appendChild(opt);
@@ -301,7 +269,6 @@
 
       setSelectedVoice(final);
 
-      // Sync dropdown selection to selected voice
       if (final) {
         const key = final.voiceURI || final.name;
         voiceSelect.value = key;
@@ -316,7 +283,6 @@
     }
 
     if ("speechSynthesis" in window) {
-      // Voices often load asynchronously
       speechSynthesis.onvoiceschanged = refreshVoices;
       refreshVoices();
     } else {
@@ -350,8 +316,6 @@
       speechSynthesis.cancel();
 
       const u = new SpeechSynthesisUtterance(clean);
-
-      // Always set lang (important on iOS)
       u.lang = "en-US";
       if (selectedVoice) u.voice = selectedVoice;
 
@@ -410,7 +374,7 @@
         if (rms >= threshold) {
           consecutive++;
           if (consecutive >= holdFrames) {
-            const backMs = 100;
+            const backMs = 70;
             const start = Math.max(0, i - Math.floor(sampleRate * (backMs / 1000)));
             return start / sampleRate;
           }
